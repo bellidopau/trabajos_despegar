@@ -101,6 +101,12 @@ def registrar_producto(producto):
   producto["stock"] = 0
   list.append(productos, producto)
 
+def limpiar_lista():
+  productos.clear()
+
+def cantidad_productos():
+  return len(productos)  
+
 #recibe un diccionario con nombre,codigo,categoria y precio a la lista productos
 
 #Ejemplo
