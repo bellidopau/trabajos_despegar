@@ -5,7 +5,9 @@ Le ha pedido a 2Diseños, consultora de software, desarrollar un nuevo sistema p
 #MacoWins guarda la información de sus productos en una lista con la siguiente forma:
 #esto es una lista de productos
 
-import time
+from datetime import date
+fecha = date.strftime(date.today(),"%Y-%m-$d")
+
 productos = [
   {
     "codigo": 100,
@@ -107,10 +109,6 @@ def limpiar_lista():
 def cantidad_productos():
   return len(productos)  
 
-#recibe un diccionario con nombre,codigo,categoria y precio a la lista productos
-
-#Ejemplo
-"""registrar_producto(borcegos)"""
 
 
 
@@ -118,14 +116,13 @@ def cantidad_productos():
 # recargar_stock: toma un código de producto y una cantidad de unidad de stock a agregar, e incrementa el stock correspondiente a ese producto. Si el código de producto indicado no existe, debe lanzar una excepción."""
 
 def recargar_stock(codigo, valor_a_agregar):
-  """recargar_stock(101, 70)"""
   existe = False
   for producto in productos:
       if producto["codigo"]== codigo:
         existe = True
         producto["stock"] += valor_a_agregar
-      if not existe:
-        raise ValueError("codigo no reconocido")
+  #else:
+        #raise ValueError("codigo no reconocido")
 
 
 
@@ -200,7 +197,7 @@ def valor_ventas_del_dia():
     
     total_recaudado = 0
     for venta in ventas:
-        if venta["fecha"] == time.strftime("%d/%m/%y"):
+        if venta["fecha"] == date.strftime("%d/%m/%y"):
           total_recaudado += venta["precio"]
     return total_recaudado
 
@@ -210,8 +207,8 @@ def valor_ventas_del_dia():
 def valor_ventas_del_anio(ventas):
   total_recaudado = 0
   for x in range(len(ventas)):
-        fecha = time.strftime(ventas[x]["fecha"], '%d-%m-%Y')
-        if fecha.date().strftime("%Y") == time.today().date().strftime("%Y"):
+        fecha = date.strftime(ventas[x]["fecha"], '%d-%m-%Y')
+        if fecha.date().strftime("%Y") == date.today().date().strftime("%Y"):
             total_recaudado += ventas[x]["precio"]
   return total_recaudado
 
@@ -261,10 +258,12 @@ def buscarProducto(código, productos):
             print("Cantidad vendida:",ranking_ventas[x]["cantidad"])
         x += 1"""
 
+#Ejercicio aun en correcion
+
 
 #11.actualizar_precios_por_categoria: toma una categoría y un porcentaje, y actualiza según ese porcentaje el precio de todos los productos que tengan esa categoría. La búsqueda de categoría en este procedimiento no debe ser exacta: por ejemplo tanto si se pasa como argumento "REMERA", " REMERA" o "Remera", deben actualizarse los productos de la categoría "remera".
 
-def actualizar_precios_por_categoría(categoría, porcentaje, productos):
+def actualizar_precios_por_categoria(categoria, porcentaje, productos):
     for x in range(len(productos)):
-        if categoría.strip(' ').lower() == productos[x]["categoría"].lower():
+        if categoria.strip(' ').lower() == productos[x]["categoria"].lower():
             productos[x]["precio"] *= 1 + porcentaje / 100
