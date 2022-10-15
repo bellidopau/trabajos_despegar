@@ -1,37 +1,11 @@
 """Reconocida cadena de ropa formal, con tiendas en muchas ciudades de Argentina. 
 Le ha pedido a 2Diseños, consultora de software, desarrollar un nuevo sistema para la gestión de sus ventas y stock."""
 
-#Modelo
-#MacoWins guarda la información de sus productos en una lista con la siguiente forma:
-#esto es una lista de productos
 
 from datetime import date
 fecha = date.strftime(date.today(),"%Y-%m-$d")
 
-productos = [
-  {
-    "codigo": 100,
-    "nombre": "remera talle m",
-    "categoria": "remera",
-    "precio": 4500,
-    "stock": 35
-  }
-]
-#Además, guarda la información de cada venta así:
-ventas = [
-  {
-    "codigo_producto": 100,
-    "cantidad": 3,
-    "fecha": "2021-09-20",
-    "precio": 4500
-  }
-]
 
-#Requerimientos
-"""Desarrollar y probar las funciones y procedimientos:
-"""
-#Productos de ejemplo 
-# #esto es un diccionario de cada producto
 camisa = {
   "codigo": 100,
   "nombre": "camisa estampada",
@@ -121,8 +95,8 @@ def recargar_stock(codigo, valor_a_agregar):
       if producto["codigo"]== codigo:
         existe = True
         producto["stock"] += valor_a_agregar
-  #else:
-        #raise ValueError("codigo no reconocido")
+  if not existe:
+        raise ValueError("codigo no reconocido")
 
 
 
@@ -195,54 +169,23 @@ def discontinuar_producto(productos):
 
 def valor_ventas_del_dia():
     
-    total_recaudado = 0
+    total_recaudado_dia = 0
     for venta in ventas:
         if venta["fecha"] == date.strftime("%d/%m/%y"):
           total_recaudado += venta["precio"]
-    return total_recaudado
+    return total_recaudado_dia
 
 
 #9.ventas_del_anio: retorna un listado con todas las ventas para el año actual.
 
-def valor_ventas_del_anio(ventas):
-  total_recaudado = 0
-  for x in range(len(ventas)):
-        fecha = date.strftime(ventas[x]["fecha"], '%d-%m-%Y')
-        if fecha.date().strftime("%Y") == date.today().date().strftime("%Y"):
-            total_recaudado += ventas[x]["precio"]
-  return total_recaudado
+def valor_ventas_del_anio():
+  total_recaudado_anio = 0
+  for venta in ventas:
+    if date.strftime("%Y") == venta["anio"]:
+      total_ventas_anio += venta ["precio"]
+  return total_recaudado_anio
 
-def armar_ranking_ventas(ventas):
-    ranking_ventas = []
-    for x in range(len(ventas)):
-        no_está_en_ranking = True
-        for i in range(len(ranking_ventas)):
-            if ranking_ventas[i]["código_producto"] == ventas[x]["código_producto"]:
-                ranking_ventas[i]["cantidad"] += ventas[x]["cantidad"]
-                no_está_en_ranking = False
-        if no_está_en_ranking:
-            ranking_ventas.append({"código_producto":ventas[x]["código_producto"], "cantidad":ventas[x]["cantidad"]})
-    return ranking_ventas
 
-def ordenar_ranking_ventas(ranking):
-    for x in range(len(ranking) - 1):
-        for i in range(len(ranking) - x - 1):
-            if ranking[i]["cantidad"] < ranking[i + 1]["cantidad"]:
-                ranking[i], ranking[i + 1] = ranking[i + 1], ranking[i]
-
-def existeEsteProducto(código, productos):
-    existe = False
-    for x in range(len(productos)):
-        if productos[x]["código"] == código:
-            existe = True
-    return existe
-
-def buscarProducto(código, productos):
-    for x in range(len(productos)):
-        if productos[x]["código"] == código:
-            prod = productos[x]
-    return prod
-    
                 
 
 #10.productos_mas_vendidos: toma una cantidad n de productos y retorna los nombres de los n productos más vendidos
