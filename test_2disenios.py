@@ -70,7 +70,8 @@ def test_realiza_compra_de_1_producto():
     registrar_producto(corbata)
     recargar_stock(500, 100)
     realizar_compra(500, 50)
-    assert len(ventas)== 1
+    assert len(ventas)==1
+    assert (ventas)==1
 
 def test_elimina_un_producto_en_la_lista_sin_stock():
     limpiar_lista()

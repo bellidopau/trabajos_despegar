@@ -1,6 +1,7 @@
 #Reconocida cadena de ropa formal, con tiendas en muchas ciudades de Argentina le ha pedido a 2Diseños, consultora de software, desarrollar un nuevo sistema para la gestión de sus ventas y stock
 
 
+from itertools import count
 import time
 
 camisa = {
@@ -65,14 +66,26 @@ medias = {
 }
 
 class Prenda:
-  def __init__(self,producto):
-    self.producto = producto
+  def __init__(self,productos):
+    self.productos = productos
 
-  def nueva(self):
-    self.producto["precio"] = ["precio"]
+  def nueva(self,codigo):
+    global productos
+    count=0
+    for producto in self.productos:
+      
+      if producto['codigo']==codigo:
+        self.productos[count]['precio']=self.productos[count]['precio']
+      else:
+        count+=1
 
   def promocion(self, valor_fijo):
-    self.producto["precio"] -= valor_fijo
+    global productos
+    #self.producto["precio"] -= valor_fijo
+    count= 0
+    for producto in self.productos:
+      if producto['codigo']==valor_fijo:
+        self.productos[count]['precio']=self.productos[count]['precio'] - valor_fijo
 
   def liquidacion(self):
     self.producto["precio"]/2
@@ -80,7 +93,7 @@ class Prenda:
 #1.
 #registrar_producto: recibe un diccionario con codigo, nombre, categoria, precio y agrega un producto nuevo a la lista de productos.
 
-productos = []
+productos = [{"codigo":100, "precio":4500},{"codigo":300, "precio":5000},{"codigo":400, "precio":4500},{"codigo":200, "precio":5000}]
 ventas = []
 
 def registrar_producto(producto):
