@@ -66,19 +66,55 @@ medias = {
 }
 
 class Prenda:
-  def __init__(self,productos):
-    self.productos = productos
+  def __init__(self,codigo,nombre, categoria, precio):
+    self.codigo = codigo
+    self.nombre = nombre
+    self.categoria = [categoria]
+    self.precio_base = precio
+    self.estado = Nueva()
+
+  def precio(self):
+    return self.estado.precio_final(self.precio_base)
+  
+  def cambiar_estado(self, nuevo_estado):
+    self.estado = nuevo_estado
+
+
+class Nueva:
+  def precio_final(self,precio_base):
+    return precio_base
+
+class Promocion:
+  def __init__(self, valor_fijo):
+    self.valor_fijo = valor_fijo
+
+  def precio_final(self, precio_base):
+    return precio_base - self.valor_fijo
+
+class Liquidacion:
+  def precio_final(self, precio_base):
+    return precio_base/2 
+    
 
   def nueva(self,codigo):
     global productos
     count=0
-    #como reflejo el estado de una prenda?
     for producto in self.productos:
       
       if producto['codigo']==codigo:
         self.productos[count]['precio']=self.productos[count]['precio']
       else:
         count+=1
+
+  #def promocion(self, valor_fijo):
+    #global productos
+    #count= 0
+    #for producto in self.productos:
+      #if producto['codigo']==valor_fijo:
+        #self.productos[count]['precio']=self.productos[count]['precio'] - valor_fijo
+
+  #def liquidacion(self):
+    #self.producto["precio"]/2
 
   def promocion(self, codigo, valor_fijo):
     global productos
@@ -97,12 +133,7 @@ class Prenda:
       else:
         count
 
-#3 Multiples categorias
-  def multiples_categorias(categoria):
-    for producto in productos:
-      if productos["categoria"]== categoria:
-        return True
-
+  
 
 
 #1.
@@ -121,7 +152,13 @@ def limpiar_lista():
 def cantidad_productos():
   return len(productos)  
 
-
+#3 Multiples categorias
+categoria = []
+def multiples_categorias():
+    for x in categoria:
+      if productos["categoria"]== categoria:
+        len(categoria,productos["categoria"] )
+        return categoria
 
 
 #2.
@@ -189,15 +226,6 @@ def contar_categorias(productos):
 #6.realizar_compra: recibe un código de producto y una cantidad de items a comprar. En base a ello, decrementa el stock del producto correspondiente y crea una nueva venta con la información correspondiente. Si no hay suficiente stock, lanzar una excepción.
 
 
-#def realizar_compra(codigo_producto, cantidad_a_comprar, fecha, ventas, productos):
-    #for x in range(len(productos)):
-        #if productos[x]["codigo"] == codigo_producto and productos[x]["stock"] - cantidad_a_comprar >= 0:
-            #productos[x]["stock"] -= cantidad_a_comprar
-            #nueva_venta = {"codigo_producto":codigo_producto, "cantidad":cantidad_a_comprar, "fecha":fecha, "precio":(cantidad_a_comprar*productos[x]["precio"])}
-            #ventas.append(nueva_venta)
-        #elif productos[x]["codigo"] == codigo_producto:
-            #raise ValueError("Producto sin stock")
-
 def realizar_compra(codigo_producto, cantidad_a_comprar):
   codigo_valido = False
   for producto in productos:
@@ -261,17 +289,6 @@ def valor_ventas_del_anio():
                 
 
 #10.productos_mas_vendidos: toma una cantidad n de productos y retorna los nombres de los n productos más vendidos
-
-#def productos_más_vendidos(ventas, n, productos):
-    #ranking_ventas = armar_ranking_ventas(ventas)
-    #ordenar_ranking_ventas(ranking_ventas)
-    #x = 0
-    #while x < n and x < len(ranking_ventas):
-        #if existeEsteProducto(ranking_ventas[x]["código_producto"], productos):
-           # producto = buscarProducto(ranking_ventas[x]["código_producto"], productos)
-            #print("Nombre:",producto["nombre"])
-            #print("Cantidad vendida:",ranking_ventas[x]["cantidad"])
-        #x += 1"""
 
 
 def productos_mas_vendidos(cantidad_productos):

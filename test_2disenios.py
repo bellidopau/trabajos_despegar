@@ -37,7 +37,7 @@ def test_se_agrego_compra_a_lista_ventas():
     "categoria":"remera","precio":2900})
     recargar_stock(300,10)
     realizar_compra(300,3)
-    assert [{'anio': '2022', 'cantidad_vendida': 3, 'fecha': '18/10/22', 'monto': 8700, 'producto':'blusa de seda' }] in ventas
+    assert [{'anio': '2022', 'cantidad_vendida': 3, 'monto': 8700, 'producto':'blusa de seda' }] in ventas
 
     #assert {'cantidad': 3, 'codigo_producto': 300, 'fecha': -2020, 'precio': 8700} in ventas
 
@@ -69,8 +69,7 @@ def test_realiza_compra_de_1_producto():
     limpiar_lista()
     registrar_producto(corbata)
     recargar_stock(500, 100)
-    realizar_compra(500, 50)
-    assert len(ventas)==1
+    realizar_compra(500, 1)
     assert (ventas)==1
 
 def test_elimina_un_producto_en_la_lista_sin_stock():
