@@ -72,6 +72,7 @@ class Prenda:
   def nueva(self,codigo):
     global productos
     count=0
+    #como reflejo el estado de una prenda?
     for producto in self.productos:
       
       if producto['codigo']==codigo:
@@ -79,16 +80,30 @@ class Prenda:
       else:
         count+=1
 
-  def promocion(self, valor_fijo):
+  def promocion(self, codigo, valor_fijo):
     global productos
-    #self.producto["precio"] -= valor_fijo
     count= 0
     for producto in self.productos:
-      if producto['codigo']==valor_fijo:
+      if producto['codigo']==codigo:
         self.productos[count]['precio']=self.productos[count]['precio'] - valor_fijo
+      else:
+        count-=valor_fijo
 
-  def liquidacion(self):
-    self.producto["precio"]/2
+  def liquidacion(self, codigo):
+    count= 0
+    for producto in self.productos:
+      if producto['codigo']==codigo:
+        self.productos[count]['precio']=self.productos[count]['precio'] /2
+      else:
+        count
+
+#3 Multiples categorias
+  def multiples_categorias(categoria):
+    for producto in productos:
+      if productos["categoria"]== categoria:
+        return True
+
+
 
 #1.
 #registrar_producto: recibe un diccionario con codigo, nombre, categoria, precio y agrega un producto nuevo a la lista de productos.

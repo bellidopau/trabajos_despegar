@@ -88,7 +88,7 @@ def test_las_ventas_de_hoy():
     recargar_stock(110, 60)
     realizar_compra(600, 3)
     realizar_compra(110, 3)
-    assert valor_ventas_del_dia
+    assert valor_ventas_del_dia()
 
 
 def test_ventas_de_otro_dia():
@@ -99,7 +99,7 @@ def test_ventas_de_otro_dia():
     recargar_stock(110, 60)
     realizar_compra(600, 3)
     realizar_compra(110, 3)
-    assert not valor_ventas_del_dia
+    assert not valor_ventas_del_dia()
 
 
 
