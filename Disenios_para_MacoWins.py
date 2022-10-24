@@ -4,136 +4,26 @@
 from itertools import count
 import time
 
-camisa = {
-  "codigo": 100,
-  "nombre": "camisa estampada",
-  "categoria": "ropa formal",
-  "precio": 3500
+camisa = {"codigo": 100,"nombre": "camisa estampada","categoria": "ropa formal","precio": 3500
 }
-collar = {
-  "codigo": 200,
-  "nombre": "collar de perlas",
-  "categoria": "accesorios",
-  "precio": 2100
+collar = {"codigo": 200,"nombre": "collar de perlas","categoria": "accesorios","precio": 2100
 }
-blusa = {
-  "codigo": 300,
-  "nombre": "blusa de seda",
-  "categoria": "remeras",
-  "precio": 2900
+blusa = {"codigo": 300,"nombre": "blusa de seda","categoria": "remeras","precio": 2900
 }
-short = {
-  "codigo": 400,
-  "nombre": "short veraniego",
-  "categoria": "pantalon",
-  "precio": 2800
+short = {"codigo": 400,"nombre": "short veraniego","categoria": "pantalon","precio": 2800
 }
-corbata = {
-  "codigo": 500,
-  "nombre": "corbata azul",
-  "categoria": "accesorios",
-  "precio": 750
+corbata = {"codigo": 500,"nombre": "corbata azul","categoria": "accesorios","precio": 750
 }
-campera = {
-  "codigo": 600,
-  "nombre": "campera cuero",
-  "categoria": "abrigo",
-  "precio": 9500
+campera = {"codigo": 600,"nombre": "campera cuero","categoria": "abrigo","precio": 9500
 }
-wideleg = {
-  "codigo": 540,
-  "nombre": "pantalon jean",
-  "categoria": "jeans",
-  "precio": 3100
+wideleg = {"codigo": 540,"nombre": "pantalon jean","categoria": "jeans","precio": 3100
 }
-borcegos = {
-  "codigo": 110,
-  "nombre": "borcegos marrones",
-  "categoria": "botas",
-  "precio": 12000
+borcegos = {"codigo": 110,"nombre": "borcegos marrones","categoria": "botas","precio": 12000
 }
-blazer = {
-  "codigo": 80,
-  "nombre": "blazer azul",
-  "categoria": "saco formal",
-  "precio": 2700
+blazer = {"codigo": 80,"nombre": "blazer azul","categoria": "saco formal","precio": 2700
 }
-medias = {
-  "codigo": 45,
-  "nombre": "medias goku",
-  "categoria": "accesorios",
-  "precio": 500
+medias = {"codigo": 45, "nombre": "medias goku", "categoria": "accesorios","precio": 500
 }
-
-class Prenda:
-  def __init__(self,codigo,nombre, categoria, precio):
-    self.codigo = codigo
-    self.nombre = nombre
-    self.categoria = [categoria]
-    self.precio_base = precio
-    self.estado = Nueva()
-
-  def precio(self):
-    return self.estado.precio_final(self.precio_base)
-  
-  def cambiar_estado(self, nuevo_estado):
-    self.estado = nuevo_estado
-
-
-class Nueva:
-  def precio_final(self,precio_base):
-    return precio_base
-
-class Promocion:
-  def __init__(self, valor_fijo):
-    self.valor_fijo = valor_fijo
-
-  def precio_final(self, precio_base):
-    return precio_base - self.valor_fijo
-
-class Liquidacion:
-  def precio_final(self, precio_base):
-    return precio_base/2 
-    
-
-  def nueva(self,codigo):
-    global productos
-    count=0
-    for producto in self.productos:
-      
-      if producto['codigo']==codigo:
-        self.productos[count]['precio']=self.productos[count]['precio']
-      else:
-        count+=1
-
-  #def promocion(self, valor_fijo):
-    #global productos
-    #count= 0
-    #for producto in self.productos:
-      #if producto['codigo']==valor_fijo:
-        #self.productos[count]['precio']=self.productos[count]['precio'] - valor_fijo
-
-  #def liquidacion(self):
-    #self.producto["precio"]/2
-
-  def promocion(self, codigo, valor_fijo):
-    global productos
-    count= 0
-    for producto in self.productos:
-      if producto['codigo']==codigo:
-        self.productos[count]['precio']=self.productos[count]['precio'] - valor_fijo
-      else:
-        count-=valor_fijo
-
-  def liquidacion(self, codigo):
-    count= 0
-    for producto in self.productos:
-      if producto['codigo']==codigo:
-        self.productos[count]['precio']=self.productos[count]['precio'] /2
-      else:
-        count
-
-  
 
 
 #1.
@@ -152,13 +42,6 @@ def limpiar_lista():
 def cantidad_productos():
   return len(productos)  
 
-#3 Multiples categorias
-categoria = []
-def multiples_categorias():
-    for x in categoria:
-      if productos["categoria"]== categoria:
-        len(categoria,productos["categoria"] )
-        return categoria
 
 
 #2.
@@ -185,12 +68,6 @@ def hay_stock(codigo_producto):
     if codigo_producto == producto["codigo"]:
       return producto["stock"] > 0
   return False
-
-    #respuesta = False
-    #for x in range(len(productos)):
-        #if productos["codigo"] == codigo_producto["stock"] > 0:
-            #respuesta = True
-    #return respuesta
 
 
 #4.calcular_precio_final: toma un producto (un diccionario) y un booleano es_extranjero y calcula su valor final, según la siguiente regla: a. si quien calcula el precio es extranjero y el valor es mayor de $70, es el mismo valor sin cambios. b. en caso contrario, es el valor original más un 21%
@@ -262,12 +139,6 @@ def valor_ventas_del_dia():
       valor_total+= venta["monto"]
   return valor_total
     
-    #total_recaudado_dia = 0
-    #for venta in ventas:
-        #if venta["fecha"] == date.strftime("%d/%m/%y"):
-          #total_recaudado += venta["precio"]
-    #return total_recaudado_dia
-
 
 #9.ventas_del_anio: retorna un listado con todas las ventas para el año actual.
 
@@ -277,14 +148,6 @@ def valor_ventas_del_anio():
     if time.strftime("%Y") == venta["anio"]:
       ventas_del_anio += venta["monto"]
   return ventas_del_anio
-
-#def valor_ventas_del_anio():
-  #total_recaudado_anio = 0
-  #for venta in ventas:
-    #if date.strftime("%Y") == venta["anio"]:
-      #total_ventas_anio += venta ["precio"]
-  #return total_recaudado_anio
-
 
                 
 
@@ -305,3 +168,172 @@ def actualizar_precios_por_categoria(categoria, porcentaje, productos):
     for x in range(len(productos)):
         if categoria.strip(' ').lower() == productos[x]["categoria"].lower():
             productos[x]["precio"] *= 1 + porcentaje / 100
+
+
+
+#TP Parte 3
+
+class Prenda:
+  def __init__(self,codigo,nombre, categoria, precio):
+    self.codigo = codigo
+    self.nombre = nombre
+    self.categoria = [categoria]
+    self.precio_base = precio
+    self.estado = Nueva()
+
+  def precio(self):
+    return self.estado.precio_final(self.precio_base)
+  
+  def cambiar_estado(self, nuevo_estado):
+    self.estado = nuevo_estado
+
+  def calcular_precio(self):
+    return self.estado.precio_final(self.precio)
+
+  def multiples_categorias(self, nueva_categoria):
+    self.categoria.append(nueva_categoria)
+
+  def categorias_nuevas(self, categoria):
+    return categoria in self.categoria
+      
+class Nueva:
+  def precio_final(self,precio_base):
+    return precio_base
+
+class Promocion:
+  def __init__(self, valor_fijo):
+    self.valor_fijo = valor_fijo
+
+  def precio_final(self, precio_base):
+    return precio_base - self.valor_fijo
+
+class Liquidacion:
+  def precio_final(self, precio_base):
+    return precio_base/2 
+    
+
+class Sucursal:
+  def __init__(self):
+    self.productos = []
+    self.ventas = []
+
+  def registrar_producto1(self, producto):
+    producto["stock"] = 0
+    self.productos.append(producto)
+    
+    
+  def recargar_stock1(self, codigo, valor_a_agregar):
+    existe = False
+  for producto in self.productos:
+      if producto["codigo"]== codigo:
+        existe = True
+        producto["stock"] += valor_a_agregar
+  if not existe:
+        raise ValueError("codigo no reconocido")
+
+
+  def hay_stock1(self, codigo_producto):
+    for producto in self.productos:
+      if codigo_producto == producto["codigo"]:
+        return producto["stock"] > 0
+    return False
+
+  def calcular_precio_final1(self, producto, es_extranjero):
+    precio_final=0
+  if es_extranjero and producto["precio"]>70:
+    precio_final = producto["precio"]
+    return precio_final
+  else:
+    precio_final = producto["precio"]* 1.21
+  return precio_final
+
+
+def contar_categorias(self.productos):
+    if len(productos) > 0:
+        cantidad_categorias = 1
+        for x in range(1, len(productos)):
+            categoria_ya_contada = False
+            for j in range(x):
+                if productos[j]["categoria"] == productos[x]["categoria"]:
+                    categoria_ya_contada = True
+            if not categoria_ya_contada:
+                cantidad_categorias += 1
+    else:
+        cantidad_categorias = 0
+    return cantidad_categorias
+
+
+
+#6.realizar_compra: recibe un código de producto y una cantidad de items a comprar. En base a ello, decrementa el stock del producto correspondiente y crea una nueva venta con la información correspondiente. Si no hay suficiente stock, lanzar una excepción.
+
+
+def realizar_compra(self, codigo_producto, cantidad_a_comprar):
+  codigo_valido = False
+  for producto in productos:
+    if codigo_producto == producto["codigo"]:
+      codigo_valido=True
+      if hay_stock(codigo_producto) and producto["stock"]> cantidad_a_comprar:
+        producto["stock"] -= cantidad_a_comprar
+        monto_total= producto["precio"]*cantidad_a_comprar
+        list.append(ventas,{"producto":producto["nombre"],"cantidad_vendida":cantidad_a_comprar, "monto":monto_total,"fecha": time.strftime("%d/%m/%y"),"anio":time.strftime("%Y")})
+      else:
+        raise ValueError ("Sin stock para comprar")
+  if not codigo_valido:
+    raise ValueError ("El codigo no existe")
+
+
+
+
+#7.discontinuar_productos: elimina los productos sin stock.
+
+
+def discontinuar_producto():
+    for producto in self.productos:
+      if producto ["stock"]<=0:
+        #productos.remove(producto)
+        self.productos.remove(producto)
+
+
+#8.valor_ventas_del_dia: retorna el valor total de las ventas del día de hoy.
+
+def valor_ventas_del_dia():
+  valor_total = 0
+  for venta in self.ventas:
+    if time.strftime("%d/%m/%y") == venta["fecha"]:
+      valor_total+= venta["monto"]
+  return valor_total
+    
+
+#9.ventas_del_anio: retorna un listado con todas las ventas para el año actual.
+
+def valor_ventas_del_anio():
+  ventas_del_anio = 0
+  for venta in self.ventas:
+    if time.strftime("%Y") == venta["anio"]:
+      ventas_del_anio += venta["monto"]
+  return ventas_del_anio
+
+                
+
+#10.productos_mas_vendidos: toma una cantidad n de productos y retorna los nombres de los n productos más vendidos
+
+
+def productos_mas_vendidos(self, cantidad_productos):
+  productos_vendidos= []
+  #ranking_mas_vendidos=[]
+  for venta in self.ventas:
+    list.append(productos_vendidos,venta["producto"])
+
+
+
+#11.actualizar_precios_por_categoria: toma una categoría y un porcentaje, y actualiza según ese porcentaje el precio de todos los productos que tengan esa categoría.
+
+def actualizar_precios_por_categoria(self, categoria, porcentaje, productos):
+    for x in range(len(productos)):
+        if categoria.strip(' ').lower() == productos[x]["categoria"].lower():
+            productos[x]["precio"] *= 1 + porcentaje / 100
+
+
+class Sucursal Virtual:
+  self.productos = []
+  self.ventas = []
