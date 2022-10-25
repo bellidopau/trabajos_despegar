@@ -58,3 +58,20 @@ class Sucursal:
         producto.stock += valor_a_agregar
     if not existe :
       raise ValueError("no reconoce el codigo")
+
+  def hay_stock(self,codigo_producto):
+    for producto in self.productos: 
+      if codigo_producto == producto.codigo:
+        return producto.stock > 0 
+    return False
+
+  def calcular_precio_final(self,producto,es_extranjero):
+    precio_final= 0
+  if es_extranjero and producto.precio >70:
+    precio_final = producto.precio
+    return precio_final
+  else:
+    precio_final = producto.precio *1.21
+  return precio_final
+
+  
