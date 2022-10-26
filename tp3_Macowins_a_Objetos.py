@@ -1,3 +1,4 @@
+import time
 class Prenda:
   def __init__(self,codigo,nombre, categoria, precio, stock):
     self.codigo = codigo
@@ -21,6 +22,8 @@ class Prenda:
 
   def categorias_nuevas(self, categoria):
     return categoria in self.categoria
+
+         
       
 class Nueva:
     def precio_final(self,precio_base):
@@ -65,13 +68,33 @@ class Sucursal:
         return producto.stock > 0 
     return False
 
-  def calcular_precio_final(self,producto,es_extranjero):
-    precio_final= 0
-  if es_extranjero and producto.precio >70:
-    precio_final = producto.precio
-    return precio_final
-  else:
-    precio_final = producto.precio *1.21
-  return precio_final
+  def calcular_precio_final(self,es_extranjero,producto):
 
-  
+   if es_extranjero and producto.precio > 70:
+        return producto.precio
+   else:
+        return producto.precio + producto.precio * 1.21
+
+
+  def contar_categoria(self, categoria):
+    cantidad_categorias = 0
+    for producto in self.productos:
+      if producto.categoria == categoria:
+        cantidad_categorias += 1
+      return cantidad_categorias
+
+  def realizar_compra(self,codigo_producto,cantidad_a_comprar):
+    codigo_valido= False
+    for producto in self.productos:
+      if codigo_producto == producto.codigo:
+        codigo_valido= True
+        if self.hay_stock(codigo_producto) and producto.stock > cantidad_a_comprar:
+          self.ventas.append({"producto":producto.nombre,"cantidad_vendida":cantidad_a_comprar,"monto":producto.precio, "fecha":time.strftime("%d/%m/%y"),"anio":time.strftime("%Y")})
+        else:
+          raise ValueError("sin stock para comprar")
+
+  def discontinuar_producto(self):
+    for producto in self.productos:
+      if producto.stock <= 0:
+          self.productos.remove(producto)
+
