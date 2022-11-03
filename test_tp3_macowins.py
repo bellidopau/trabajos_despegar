@@ -1,11 +1,18 @@
 from tp3Objetos import *
-global pantalon
-global camisa
-global sucursal_abasto
-pantalon = Prenda(100,"pantalon azul","sastrero",3000)
-camisa = Prenda(101, "camisa rosa", "ropa formal", 1700 )
-corbata = Prenda(102, "corbata blanca", "accesorio", 1200)
-sucursal_abasto = SucursalFisica(1000)
+
+pantalon = None
+camisa = None
+sucursal_abasto = None
+corbata = None
+
+def setup_function():
+    global pantalon
+    global camisa
+    global sucursal_abasto
+    pantalon = Prenda(100,"pantalon azul","sastrero",3000)
+    camisa = Prenda(101, "camisa rosa", "ropa formal", 1700 )
+    corbata = Prenda(102, "corbata blanca", "accesorio", 1200)
+    sucursal_abasto = SucursalFisica(1000)
 
 #1 registrar_producto
 def test_se_registro_el_producto_remera():

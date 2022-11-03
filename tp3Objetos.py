@@ -1,5 +1,5 @@
 import time
-from turtle import right
+
 
 
 class Sucursal:
@@ -121,8 +121,7 @@ class Sucursal:
 
 class SucursalFisica(Sucursal):
     def __init__(self, gasto):
-        self.productos = []
-        self.ventas = []
+        super().__init__() #TODO hacer lo mismo en sucursal virtual
         self.gasto_por_dia = gasto
 
     def gastos_del_dia(self):
@@ -185,6 +184,9 @@ class Prenda:
     def es_de_nombre(self, nombre):
         return nombre == self.nombre
 
+    def es_de_precio(self, precio):
+        return precio == self.precio
+
          
 class Nueva:
     def precio_final(self,precio):
@@ -205,11 +207,10 @@ class PorPrecio:
     def __init__(self, un_precio):
         self.precio = un_precio
 
-    def actualizar_precios_por_precio(self, un_valor, producto):
-        if producto.precio < un_valor:
-            producto.precio = un_valor
+    def corresponde_al_producto(self, producto):
+        return producto.es_de_precio(self.precio)
 
-
+#TODO modificar los criterios para que sean polimorficos y testearlos
 class PorStock:
     def __init__(self, un_stock):
         self.stock = un_stock
@@ -217,7 +218,7 @@ class PorStock:
     def actualizar_precios_por_stock(self, producto):
         if producto.stock > 0:
             producto.stock += 1
-
+#TODO modoficar Oposicion para que cualquiera de los criterior generados sean negados y no sin repetir logica
 class PorPosicion:
 
     def actualizar_precios(self,un_valor, producto):
@@ -244,3 +245,4 @@ class PorCategoria:
         return producto.es_de_categoria (self.categoria)
 
 
+#TODO implemetar una busqueda generica en busquedapor
