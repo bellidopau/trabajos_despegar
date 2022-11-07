@@ -75,9 +75,7 @@ class Sucursal:
 
 
     def discontinuar_producto(self):
-        for producto in self.productos:
-            if producto.stock <= 0:
-                self.productos.remove(producto)
+        self.productos = [producto for producto in self.productos if producto.stock >0]
 
 
     def ventas_del_dia(self):
