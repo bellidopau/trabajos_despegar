@@ -28,12 +28,13 @@ def test_recarga_10_camisa_a_la_lista():
     assert sucursal_abasto.hay_stock(101) == True
 
 # hay stock
-def test_no_hay_stock_de_camisa_si_de_remera():
+def test_no_hay_stock_de_camisa_si_de_pantalon():
     sucursal_abasto.limpiar_lista()
     sucursal_abasto.registrar_producto(camisa)
     sucursal_abasto.registrar_producto(pantalon)
     sucursal_abasto.recargar_stock(100, 25)
-    assert sucursal_abasto.hay_stock(101) == True
+    assert sucursal_abasto.hay_stock(101) == False
+
 
 def test_hay_stock_de_camisa():
     sucursal_abasto.limpiar_lista()
@@ -58,31 +59,34 @@ def test_si_cuenta_categorias_unicas():
     sucursal_abasto.registrar_producto(camisa)
     assert sucursal_abasto.contar_categorias() == 1
 
-"""def test_cuenta_categorias_distintas():
+def test_cuenta_categorias_distintas():
     sucursal_abasto.limpiar_lista()
+    sucursal_abasto.limpiar_lista_ventas()
     sucursal_abasto.registrar_producto(camisa)
     sucursal_abasto.registrar_producto(pantalon)
-    assert sucursal_abasto.contar_categorias() == 2"""
+    assert sucursal_abasto.contar_categorias() == 2
 
 #realizar_compra
 def test_realiza_compra_de_un_producto_con_stock():
     sucursal_abasto.limpiar_lista()
+    sucursal_abasto.limpiar_lista_ventas()
     sucursal_abasto.registrar_producto(camisa)
-    sucursal_abasto.recargar_stock(101, 50)
-    sucursal_abasto.realizar_compra(101, 50)
-    assert camisa.stock == 60 
+    sucursal_abasto.recargar_stock(101,50)
+    sucursal_abasto.realizar_compra(101,50)
+    assert len(sucursal_abasto.ventas) == 1
 
-"""def test_compra_producto_sin_stock():
+def test_compra_producto_sin_stock():
     sucursal_abasto.limpiar_lista()
     sucursal_abasto.registrar_producto(pantalon)
-    assert sucursal_abasto.realizar_compra(101, 1) == ValueError ("Producto sin stock")"""
+    assert sucursal_abasto.realizar_compra(101, 1) == ValueError ("Producto sin stock")
 
 def test_se_agregar_producto_comprado_a_ventas():
     sucursal_abasto.limpiar_lista()
+    sucursal_abasto.limpiar_lista_ventas()
     sucursal_abasto.registrar_producto(camisa)
-    sucursal_abasto.recargar_stock(100,100)
-    sucursal_abasto.realizar_compra(100,20)
-    assert len(sucursal_abasto.ventas) == 1
+    sucursal_abasto.recargar_stock(101,100)
+    sucursal_abasto.realizar_compra(101,20)
+    assert sucursal_abasto.ventas[0]["producto"]== "camisa rosa"
 
 #discontinuar_producto
 """def test_elimina_un_producto_en_la_lista_sin_stock():

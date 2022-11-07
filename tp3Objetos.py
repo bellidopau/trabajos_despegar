@@ -17,16 +17,23 @@ class Sucursal:
 
     def limpiar_lista(self):
         self.productos.clear()
+    def limpiar_lista_ventas(self):
+        self.ventas.clear()    
+
+    def ver_productos(self):
+        return self.productos()
 
     def cantidad_productos(self):
         return len(self.productos)  
 
     def recargar_stock(self, codigo, stock_a_agregar):
+        existe = False
         for producto in self.productos:
             if producto.codigo == codigo:
                 producto.stock += stock_a_agregar
-            else:
-                raise ValueError ("el codigo ya existe")
+                existe = True
+        if not existe:
+            raise ValueError ("el codigo ya existe")
 
 
     def hay_stock(self, codigo_producto):
@@ -51,7 +58,7 @@ class Sucursal:
         for producto in self.productos:
             if producto.categoria not in cantidad_categorias:
                 cantidad_categorias.append(producto.categoria)
-                return len(cantidad_categorias)
+        return len(cantidad_categorias)
 
 
     def realizar_compra(self, codigo, cantidad_a_comprar):
@@ -59,11 +66,11 @@ class Sucursal:
         for producto in self.productos:
             if codigo == producto.codigo:
                 existe = True
-                if producto.stock > cantidad_a_comprar:
+                if producto.stock >= cantidad_a_comprar:
                     monto_total = producto.precio * cantidad_a_comprar
                     self.ventas.append({"producto": producto.nombre, "cantidad_vendida": cantidad_a_comprar, "monto": monto_total, "fecha": time.strftime("%d/%m"), "anio": time.strftime("%Y") })
-                else:
-                    raise ValueError ("Producto sin stock")
+        if not existe:
+            raise ValueError ("Producto sin stock")
 
 
 
@@ -246,3 +253,8 @@ class PorCategoria:
 
 
 #TODO implemetar una busqueda generica en busquedapor
+
+"""retiro = Sucursal()
+
+camisa = Prenda(100, "camisa m", "casual", 3000)
+pantalon = Prenda(101, "pantalon xl", "formal", 4000)"""
