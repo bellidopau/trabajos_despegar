@@ -15,6 +15,8 @@ def setup_function():
     corbata = Prenda(102, "corbata blanca", "accesorio", 1200)
     sucursal_abasto = SucursalFisica(1000)
 
+#Test de Sucursal
+
 #1 registrar_producto
 def test_se_registro_el_producto_remera():
     sucursal_abasto.limpiar_lista()
@@ -90,13 +92,14 @@ def test_se_agregar_producto_comprado_a_ventas():
     assert sucursal_abasto.ventas[0]["producto"]== "camisa rosa"
 
 #discontinuar_producto
-"""def test_elimina_un_producto_en_la_lista_sin_stock():
+def test_elimina_un_producto_en_la_lista_sin_stock():
     sucursal_belgrano = SucursalFisica(1300)
     sucursal_belgrano.limpiar_lista()
     sucursal_belgrano.registrar_producto(corbata)
     sucursal_belgrano.registrar_producto(camisa)
+    sucursal_belgrano.discontinuar_producto()
     assert len(sucursal_belgrano.productos) ==0
-"""
+
     
 def test_elimina_producto_sin_stock():
     sucursal_abasto.limpiar_lista()
@@ -120,21 +123,23 @@ def test_retorna_el_valor_de_3_compras_hechas():
     sucursal_abasto.realizar_compra(100, 1)
     sucursal_abasto.realizar_compra(101, 1)
     sucursal_abasto.realizar_compra(102, 1)
-    assert sucursal_abasto.valor_ventas_del_dia() == 90900
+    assert sucursal_abasto.valor_ventas_del_dia() == 5900
 
 def test_retorna_la_cantidad_de_ventas_del_dia():
     sucursal_abasto.limpiar_lista()
+    sucursal_abasto.limpiar_lista_ventas()
     sucursal_abasto.registrar_producto(pantalon)
     sucursal_abasto.registrar_producto(camisa)
     sucursal_abasto.recargar_stock(100, 10)
     sucursal_abasto.recargar_stock(101, 10)
     sucursal_abasto.realizar_compra(100, 1)
     sucursal_abasto.realizar_compra(101, 1)
-    assert sucursal_abasto.ventas_del_dia() == 6
+    assert sucursal_abasto.ventas_del_dia() == 2
 
 #valor_ventas_del_anio
 def test_devuelve_cuanto_se_vendio_en_un_anio_por_unidad():
     sucursal_abasto.limpiar_lista()
+    sucursal_abasto.limpiar_lista_ventas()
     sucursal_abasto.registrar_producto(pantalon)
     sucursal_abasto.registrar_producto(camisa)
     sucursal_abasto.registrar_producto(corbata)
@@ -143,8 +148,8 @@ def test_devuelve_cuanto_se_vendio_en_un_anio_por_unidad():
     sucursal_abasto.recargar_stock(102, 10)
     sucursal_abasto.realizar_compra(100, 10)
     sucursal_abasto.realizar_compra(101, 1)
-    sucursal_abasto.realizar_compra(102, 1)
-    assert sucursal_abasto.ventas_del_anio() == 9
+    sucursal_abasto.realizar_compra(102, 3)
+    assert sucursal_abasto.ventas_del_anio() == 3
 
 def test_el_total_de_lo_vendido_en_un_anio_es():
     sucursal_abasto.limpiar_lista()
@@ -158,7 +163,7 @@ def test_el_total_de_lo_vendido_en_un_anio_es():
     sucursal_abasto.realizar_compra(101, 9)
     sucursal_abasto.realizar_compra(102, 5)
     sucursal_abasto.realizar_compra(101, 8)
-    assert sucursal_abasto.valor_ventas_del_anio() == 193400
+    assert sucursal_abasto.valor_ventas_del_anio() == 64900
 
 #actualizar_precios_segun
 def test_actualizar_precio_a_categoria_camisa_mal_escrita_en_un_50_porciento_debe_actualizar_el_precio_a_6750():
@@ -169,14 +174,14 @@ def test_actualizar_precio_a_categoria_camisa_mal_escrita_en_un_50_porciento_deb
 
 
 
-#Prenda
+#Tests de clase Prenda
 def test_se_cambia_el_precio_de_la_prenda_si_esta_en_promocion():
     camisa.cambiar_estado(Promocion(100))
-    assert camisa.precio_() == 1600
+    assert camisa.precio_total() == 1600
 
 def test_se_cambia_el_precio_de_la_prenda_si_esta_en_liquidacion():
     camisa.cambiar_estado(Liquidacion())
-    assert camisa.precio_() == 850.0
+    assert camisa.precio_total() == 850.0
 
 def test_la_categoria_es_de_la_prenda():
     assert camisa.es_de_categoria("ropa formal") == True
@@ -187,3 +192,45 @@ def test_a_categoria_ropaformal_se_agrega_una_adicional():
 
 def test_categoria_ropaformal_corresponde_a_esa_prenda():
     assert camisa.es_de_nombre("caMisa") == False
+
+
+def test_actualizar_el_precio_segun_el_nombre():
+    sucursal_abasto.limpiar_lista()
+    sucursal_abasto.registrar_producto(camisa)
+
+    sucursal_abasto.actualizar_precio_segun(PorNombre("camisa rosa"), 100)
+
+    assert camisa.precio == 3400.0
+
+def test_actualizar_el_precio_segun_el_precio():
+    sucursal_abasto.limpiar_lista()
+    sucursal_abasto.registrar_producto(camisa)
+
+    sucursal_abasto.actualizar_precio_segun(PorPrecio(1700), 10)
+
+    assert camisa.precio == 1870.0 
+
+def test_actualizar_el_precio_segun_una_categoria_dada():
+    sucursal_abasto.limpiar_lista()
+    sucursal_abasto.registrar_producto(camisa)
+
+    sucursal_abasto.actualizar_precio_segun(PorCategoria("ropa formal"), 10)
+
+    assert camisa.precio == 1870.0 
+
+
+def test_actualizar_el_precio_segun_stock():
+    sucursal_abasto.limpiar_lista()
+    sucursal_abasto.registrar_producto(camisa)
+    sucursal_abasto.recargar_stock(101, 10)
+    sucursal_abasto.actualizar_precio_segun(PorStock(), 50)
+    assert camisa.precio == 2550.0
+
+
+def test_actualizar_el_precio_que_no_es_de_un_nombre():
+    sucursal_abasto.limpiar_lista()
+    sucursal_abasto.registrar_producto(camisa)
+    
+    sucursal_abasto.actualizar_precio_segun(PorOposicion(PorNombre("ropa casual")), 10)
+
+    assert camisa.precio == 1870.0 
