@@ -1,4 +1,5 @@
 import time
+from persistencia import *
 
 
 
@@ -123,10 +124,13 @@ class Sucursal:
             if criterio.corresponde_al_producto(producto):
                 producto.precio += (producto.precio*porcentaje)/100
 
+    def lista_segun_criterio(self, criterio):
+        return [producto for producto in self.productos if criterio.corresponde_al_producto(producto)]
+
 
 class SucursalFisica(Sucursal):
     def __init__(self, gasto):
-        super().__init__() #TODO hacer lo mismo en sucursal virtual
+        super().__init__()
         self.gasto_por_dia = gasto
 
     def gastos_del_dia(self):
@@ -136,8 +140,7 @@ class SucursalFisica(Sucursal):
 
 class SucursalVirtual(Sucursal):
     def __init__(self, gasto_variable):
-        self.productos = []
-        self.ventas = []
+        super().__init__()
         self.gasto_variable = gasto_variable
 
 
@@ -165,7 +168,7 @@ class Prenda:
         self.stock = 0
 
 
-    def precio_(self):
+    def precio_total(self):
         return self.estado.precio_final(self.precio)
   
     def cambiar_estado(self, nuevo_estado):
@@ -208,6 +211,9 @@ class Liquidacion:
     def precio_final(self, precio_base):
         return precio_base/2
 
+
+#Son criterios
+
 class PorPrecio:
     def __init__(self, un_precio):
         self.precio = un_precio
@@ -215,23 +221,21 @@ class PorPrecio:
     def corresponde_al_producto(self, producto):
         return producto.es_de_precio(self.precio)
 
-#TODO modificar los criterios para que sean polimorficos y testearlos
+
 class PorStock:
     def __init__(self, un_stock):
         self.stock = un_stock
 
-    def actualizar_precios_por_stock(self, producto):
-        if producto.stock > 0:
-            producto.stock += 1
-#TODO modoficar Oposicion para que cualquiera de los criterior generados sean negados y no sin repetir logica
-class PorPosicion:
+    def corresponde_al_producto(self, producto):
+        return producto.stock > 0
 
-    def actualizar_precios(self,un_valor, producto):
-        for producto in self.productos:
-            if producto.precio > un_valor:
-                producto.precio = un_valor
-            if producto.stock < 0:
-                producto.stock +=1
+
+class PorOposicion:
+    def __init__(self, criterio):
+        self.criterio = criterio
+
+    def corresponde_al_producto(self, producto):
+        return not self.criterio.corresponde_al_producto(producto)
 
 
 
@@ -250,9 +254,9 @@ class PorCategoria:
         return producto.es_de_categoria (self.categoria)
 
 
-#TODO implemetar una busqueda generica en busquedapor
 
-"""retiro = Sucursal()
 
+retiro = Sucursal()
+"""
 camisa = Prenda(100, "camisa m", "casual", 3000)
 pantalon = Prenda(101, "pantalon xl", "formal", 4000)"""
