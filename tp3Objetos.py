@@ -2,7 +2,6 @@ import time
 from persistencia import *
 
 
-
 class Sucursal:
     def __init__(self):
         self.productos = []
@@ -15,14 +14,15 @@ class Sucursal:
         else:
             self.productos.append(producto)
 
-
     def limpiar_lista(self):
         self.productos.clear()
+
     def limpiar_lista_ventas(self):
         self.ventas.clear()    
 
     def ver_productos(self):
-        return self.productos()
+        for producto in self.productos:
+            print (str(producto.codigo) + " "+ producto.nombre)
 
     def cantidad_productos(self):
         return len(self.productos)  
@@ -35,7 +35,6 @@ class Sucursal:
                 existe = True
         if not existe:
             raise ValueError ("el codigo ya existe")
-
 
     def hay_stock(self, codigo_producto):
         for producto in self.productos:
@@ -128,6 +127,13 @@ class Sucursal:
         return [producto for producto in self.productos if criterio.corresponde_al_producto(producto)]
 
 
+    def lista_segun_criterio(self, criterio):
+          return [producto for producto in self.productos if criterio.corresponde_al_producto(producto) ]
+
+    def guardar_en_db(self, nombre_archivo, elemento):
+        guardar(nombre_archivo, elemento)
+
+
 class SucursalFisica(Sucursal):
     def __init__(self, gasto):
         super().__init__()
@@ -185,7 +191,7 @@ class Prenda:
 
     def es_de_categoria(self,una_categoria):
         for categoria in self.categoria:
-            if categoria.lower() == una_categoria.lower():
+            if str.lower(categoria) == str.lower(una_categoria):
                 return True
         return False
 
@@ -204,12 +210,16 @@ class Promocion:
     def __init__(self, valor_fijo):
         self.valor_fijo = valor_fijo
 
-    def precio_final(self, precio_base):
-        return precio_base - self.valor_fijo
+    def precio_final(self, precio_producto):
+        return precio_producto - self.valor_fijo
 
 class Liquidacion:
-    def precio_final(self, precio_base):
-        return precio_base/2
+    def precio_final(self, precio_producto):
+        return precio_producto/2
+
+
+
+#Son criterios
 
 
 #Son criterios
@@ -223,8 +233,6 @@ class PorPrecio:
 
 
 class PorStock:
-    def __init__(self, un_stock):
-        self.stock = un_stock
 
     def corresponde_al_producto(self, producto):
         return producto.stock > 0
@@ -236,7 +244,7 @@ class PorOposicion:
 
     def corresponde_al_producto(self, producto):
         return not self.criterio.corresponde_al_producto(producto)
-
+        
 
 
 class PorNombre:
@@ -246,17 +254,17 @@ class PorNombre:
     def corresponde_al_producto(self, producto):
         return producto.es_de_nombre(self.expresion_del_nombre)
         
+
 class PorCategoria:
     def __init__(self, una_categoria):
         self.categoria = una_categoria
 
     def corresponde_al_producto(self, producto):
-        return producto.es_de_categoria (self.categoria)
-
-
+        return producto.es_de_categoria(self.categoria)
 
 
 retiro = Sucursal()
 """
 camisa = Prenda(100, "camisa m", "casual", 3000)
 pantalon = Prenda(101, "pantalon xl", "formal", 4000)"""
+
