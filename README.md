@@ -1,4 +1,4 @@
 ## README
 En el presente trabajo practico implementamos los siguientes diagramas de clase:
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/72409e94-472d-4518-92dd-1301a21d574c" id="lB~54c3WCEF7"></iframe></div>
+![](https://www.plantuml.com/plantuml/png/TPD1RzKm3CVl-HGzmc4xSEOmQG892Or9axXMNk9rPcaIdEH9KFRTSPhNjDc3qwj_Vzkn_ycxYGauvTagRI76uI7hp17ieeOXi3TP9n_b-uGkGLIASQAO67ZSr7VlbQKva20h4aXymbsE4ZDgu4aIOlBwHS0p_6hVZ63fjuZQpu5BkVOkbHWIJfu9IWj3iM1o6VhUTR3He1qDGG_0aHVIqiTP1D4DcRKMTChdmmEZfXMkIumHf-n6pPIGroR3gtfZqMUAf65H4yJIEtWk4wWjtYUwgFnEN0u-buudO897YvUb0XmuJT2XKYDcFD6KkTG9tC-uztpdvqV60xZTd3omXsB_8RvV3JY0Ry574kIKKl65N026UPZOv_35FIDJ0gTn-A2shOQFVwwltxXp8NO6g5s-kXfa0cT0JkjR359tUxw7gDgNu7wrJcaBzhIjUOdzxCkolTBPq2lDvisoElwYj3SqUUMggjjyePwCCO7nAbRxAonl7kP70XvNkGAhinNIKc1Yd0JCsIOA5cF_3sd1w3AUG8Xa6DoJ6gcZrLUpJNzNQfPjeF697DZZqsq6BUe4rhDa_F3_J_zAFpCPg0N_oAfcbLl_LFseF-9idMIFzvDtTcml6v1Bo4-WyTnisRn-xSHsV-MEc346xyID-W-zaNdoRFy2)
