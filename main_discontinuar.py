@@ -5,26 +5,14 @@ from persistencia import *
 import subprocess
 
 #subprocess.call(["zenity", "--info",  '--title=La oprecion se realizo con exito', "--text=Sucursal con productos stockeados", "--display=:0"])
-ejemplo_1 = "TAREA"
+#ejemplo_1 = "sucursales"
 
 def main():
-    guardar("sucursal_1", ejemplo_1)
-    # usaremos solo cargar_todos
-
-    #luego discontinuar_productos
-    print(datetime.now(), "eliminando productos sin stock")
+    guardar("sucursal_1", sucursal_rosario)
+    sucursal_rosario = cargar_todos()
     
-    #no
-    retiro = cargar("ejemplo_1")
-    #retiro = cargar("retiro")
-    print(retiro)
-"""
-    retiro.guardar("retiro", retiro)
-    retiro.discontinuar_producto()
-    retiro.cargar_todos()
     
-    print(datetime.now(), "los productos sin stock se eliminaron")
-"""
-
 if __name__ == "__main__":
-  main()
+  for x in sucursal_rosario:
+     sucursal_rosario.discontinuar_producto()
+     print(datetime.now(), "eliminando productos sin stock")
