@@ -262,7 +262,7 @@ class PorCategoria:
     def corresponde_al_producto(self, producto):
         return producto.es_de_categoria(self.categoria)
 
-
+"""
 sucursal_rosario = Sucursal()
 
 camisa = Prenda(100, "camisa oxford", "casual", 3000)
@@ -277,4 +277,4 @@ sucursal_rosario.registrar_producto(saco)
 sucursal_rosario.recargar_stock(100, 50)
 sucursal_rosario.recargar_stock(101, 50)
 sucursal_rosario.recargar_stock(102, 50)
-sucursal_rosario.recargar_stock(103, 50)
+sucursal_rosario.recargar_stock(103, 50)"""

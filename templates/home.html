@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="shortcut icon" href="/static/img/logo-icon.png">
     <script src="https://kit.fontawesome.com/71ed577500.js" crossorigin="anonymous"></script>
-    <title>Tp5 prueba Macowins</title>
+    <title>Home</title>
 </head>
 <body>
     <header class="header">
@@ -32,7 +32,7 @@
                         <a href="#inicio">Inicio</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="sobre-nos">Sobre Nosotros</a>
+                        <a href="sobre-nos">Acerca de</a>
                     </li>
                     <li class="menu-inicio">
                         <a href="#ayuda">Ayuda</a>
@@ -53,36 +53,68 @@
            <section>
                 <h1>Home</h1>
            </section>
-    
-           <section class="container"> <!--catalogo-->
-                <p class="title"> Resultados de búsqueda</p>
-                <div class="products-container">
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <h3>Camisa Oxford</h3>
-                            <p>$4999,99</p>
-                        </div>
-                            
-                    </div>
 
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <h3>Camisa de Cambray </h3>
-                            <p>$4999,99</p>
-                        </div>
-                            
-                    </div>
+           <section id="inicio">
 
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <h3>Camisa de Mao</h3>
-                            <p>$4999,99</p>
-                        </div>
-            </section>
+                <section class="varios_buscadores">
+                    <form class="buscador_esp">
+                        <input type="text" placeholder="Busca por producto" required>
+                        <a href="#" class="boton-lupa">
+                        <i class="fa fa-search icono"></i></a>
+
+                    </form>
+
+                    <form class="buscador_esp">
+                        <input type="text" placeholder="Buscar por precio" required>
+                        <a href="#" class="boton-lupa">
+                        <i class="fa fa-search icono"></i></a>
+
+                    </form>
+
                     
+
+
+                </section>
+            
+                <section class="container"> <!--catalogo-->
+                        <p class="title"> Resultados de búsqueda</p>
+                        <div class="products-container">
+                            <div class="product">
+                                <div class="card">
+                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                                    <h3>Camisa Oxford</h3>
+                                    <p>$4999,99</p>
+                                </div>
+                                    
+                            </div>
+
+                            <div class="product">
+                                <div class="card">
+                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                                    <h3>Camisa de Cambray </h3>
+                                    <p>$4999,99</p>
+                                </div>
+                                    
+                            </div>
+
+                            <div class="product">
+                                <div class="card">
+                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                                    <h3>Camisa de Mao</h3>
+                                    <p>$4999,99</p>
+                                </div>
+                            </div>
+                        </div> 
+                </section>
+                   
+            </section>
+
+            <section class="productos-enlace-interno">
+                
+                <a class="esto" href="{{ url_for('lista_productos')}}" >Catálogo completo de productos</a>
+
+            </section>
+            
                 
             
         </main>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="shortcut icon" href="/static/img/logo-icon.png">
     <script src="https://kit.fontawesome.com/71ed577500.js" crossorigin="anonymous"></script>
-    <title>Macowins</title>
+    <title>Productos</title>
 </head>
 <body>
     <header class="header">
@@ -32,10 +32,10 @@
                         <a href="#inicio">Inicio</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="sobre-nos">Sobre Nosotros</a>
+                        <a href="sobre-nos">Acerca de</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="#ayuda">Ayuda</a>
+                        <a href="#ayuda">Faqs</a>
                     </li>
 
                 </ul>
@@ -60,8 +60,26 @@
                     <div class="product">
                         <div class="card">
                             <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <h3>Camisa Oxford</h3>
-                            <p>$4999,99</p>
+                            <!--<span>Nombre: </span>lista {{ lista }}!-->
+                            <section class="pestaña_detalle">
+                                <h3>Camisa Oxford</h3>
+                                <p class="precio">$4999,99</p>
+                            
+                            <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                          </section>
+                         </div>   
+                    </div>
+
+                    <div class="product">
+                        <div class="card">
+                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                            
+
+                            <section class="pestaña_detalle">
+                                <h3>Camisa de Cambray </h3>
+                                <p class="precio">$4999,99</p>
+                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                            </section>
                         </div>
                             
                     </div>
@@ -69,8 +87,13 @@
                     <div class="product">
                         <div class="card">
                             <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <h3>Camisa de Cambray </h3>
-                            <p>$4999,99</p>
+                            
+                            <section class="pestaña_detalle">
+                                <h3>Camisa de Mao</h3>
+                                <p class="precio">$4999,99</p>
+                                
+                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                              </section>
                         </div>
                             
                     </div>
@@ -78,42 +101,20 @@
                     <div class="product">
                         <div class="card">
                             <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <h3>Camisa de Mao</h3>
-                            <p>$4999,99</p>
+                            
+                            <section class="pestaña_detalle">
+                                <h3>Camisa cuello inglés</h3>
+                                <p class="precio">$4999,99</p>
+                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                              </section>
+                            
+                            <!--<span>Categoria: </span> -->
+                            
                         </div>
                             
                     </div>
 
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <h3>Camisa cuello inglés</h3>
-                            <p>$4999,99</p>
-                            <div>
-                                <span>Detalle: </span> {{ prod.detalles }}
-                            </div>
-                        </div>
-                            
-                    </div>
-
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <h3>Camisa cuello italiano</h3>
-                            <p>$4999,99</p>
-                        </div>
-                            
-                    </div>
-
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-
-                            <h3>Camisa cuello francés</h3>
-                            <p>$4999,99</p>
-                        </div>
-                            
-                    </div>
+                    
                 </div>
 
             </section>
