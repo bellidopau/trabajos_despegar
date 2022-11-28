@@ -26,10 +26,9 @@ footer{
     background-color: #442f76;
     padding: 1em 0;
     text-align: center;
-    /*position: absolute;
+    position: absolute;
     bottom: 0;
     width: 100%;
-    */
     margin-top: auto
 }
 
@@ -424,7 +423,8 @@ section.juntos{
 /* borde de la tabla*/
 .contenido {
    
-    border: solid 1px rgba(148, 48, 219, 0.3)
+    border: solid 1px rgba(148, 48, 219, 0.3);
+    margin-top: 168px;
 }
 
 table  {
@@ -432,7 +432,8 @@ table  {
    font-size: 14px;
    table-layout: fixed;
    border-collapse: collapse;
-   
+   width: 100%;
+   text-align: center;
 }
 thead{
     background-color: #bcb6d0;
