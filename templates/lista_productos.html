@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="shortcut icon" href="/static/img/logo-icon.png">
     <script src="https://kit.fontawesome.com/71ed577500.js" crossorigin="anonymous"></script>
-    <title>Tp5 prueba Macowins</title>
+    <title>Productos</title>
 </head>
 <body>
     <header class="header">
@@ -33,21 +32,12 @@
                         <a href="#inicio">Inicio</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="sobre-nos">Sobre Nosotros</a>
+                        <a href="sobre-nos">Acerca de</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="#contacto">Contacto</a>
+                        <a href="#ayuda">Faqs</a>
                     </li>
-            <!-- buscador  
-            
-                    <nav class="buscar">
-                        <input type="text" placeholder="Buscar" required>
-                        <div class="btn">
-                            <i class="fa fa-search icono"></i>
-                    
-                        </div>
-                    
-                    </nav>-->
+
                 </ul>
             </nav>
     
@@ -60,68 +50,104 @@
         
         <main>
             
-            <!--
-                <nav>
+            <section>
+                <h1>Bienvenido a Macowins</h1>
+            </section>
+
+            <section class="container"> <!--catalogo-->
+                <p class="title"> Catálogo de productos</p>
+                <div class="products-container">
+                    <div class="product">
+                        <div class="card">
+                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                            <!--<span>Nombre: </span>lista {{ lista }}!-->
+                            <section class="pestaña_detalle">
+                                <h3>Camisa Oxford</h3>
+                                <p class="precio">$4999,99</p>
+                            
+                            <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                          </section>
+                         </div>   
+                    </div>
+
+                    <div class="product">
+                        <div class="card">
+                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                            
+
+                            <section class="pestaña_detalle">
+                                <h3>Camisa de Cambray </h3>
+                                <p class="precio">$4999,99</p>
+                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                            </section>
+                        </div>
+                            
+                    </div>
+
+                    <div class="product">
+                        <div class="card">
+                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                            
+                            <section class="pestaña_detalle">
+                                <h3>Camisa de Mao</h3>
+                                <p class="precio">$4999,99</p>
+                                
+                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                              </section>
+                        </div>
+                            
+                    </div>
+
+                    <div class="product">
+                        <div class="card">
+                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                            
+                            <section class="pestaña_detalle">
+                                <h3>Camisa cuello inglés</h3>
+                                <p class="precio">$4999,99</p>
+                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                              </section>
+                            
+                            <!--<span>Categoria: </span> -->
+                            
+                        </div>
+                            
+                    </div>
+
                     
-                </nav> -->
+                </div>
+
+            </section>
     
-                <nav class="lista-productos">
-                    <ul>
-                        <li>
-                            <a class="ver-prod" href="#ver-lista-productos">Ver todos los productos</a>
-                        </li>
-                    </ul>
-                </nav>
                 
-                 
-                <article>
-                    <p>Lista completa de productos aqui</p>
-    
-                    
-                </article>
             
         </main>
         
         
         <footer>
-            <section class="juntos">
-                <!---<article>
-                    <p>Sobre Nosotros</p>
-                    <p>Contactenos</p>
-                    <p>Ayuda</p>
-                </article> --->
-                    <ul class="redes-contacto">
-                        <li>
-                            <a href="mailto:macowins.com" target="_blank" aria-label="enviame un mail">
-                                <img src="../static/img/web-icono.png" alt="web" class="icono-contacto">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank" aria-label="ir a instagram">
-                                <img src="../static/img/ig-icono.png" class="icono-contacto">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://es-la.facebook.com/" target="_blank" aria-label="ir a facebook">
-                                <img src="../static/img/facebook-icono.png" alt="fb" class="icono-contacto">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://ar.linkedin.com/" target="_blank" aria-label="ir a linkedin"> 
-                                <img src="/static/img/linkedin-icono.png" alt="linkedin" class="icono-contacto">
-                            </a>
-                        </li>
             
-                    </ul>
-                </section>
-                <article class="pie-pagina">
-                    <p> <small> Copyright todos los derechos reservados</small></p>
-    
-                    <p> <small> Página creada por 2 Diseños Software </small></p>
-                </article>
-    
-        
+            <div class="footer-content">
             
+
+                <ul class="social">
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i> </a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+                </ul>
+            
+            <div class="footer-bottom">
+                <p>Copyright &copy;2022 Macowins designed by <span> 2diseños</span></p>
+            </div>
+    
+    
+                
+                
+                
+                
+            </div>
+
+
         </footer>
 </body>
 </html>

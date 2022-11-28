@@ -262,9 +262,19 @@ class PorCategoria:
     def corresponde_al_producto(self, producto):
         return producto.es_de_categoria(self.categoria)
 
-
-retiro = Sucursal()
 """
-camisa = Prenda(100, "camisa m", "casual", 3000)
-pantalon = Prenda(101, "pantalon xl", "formal", 4000)"""
+sucursal_rosario = Sucursal()
 
+camisa = Prenda(100, "camisa oxford", "casual", 3000)
+pantalon = Prenda(101, "pantalon sastrero", "formal", 4000)
+saco = Prenda(102, "saco gris", "formal", 4000)
+corbata = Prenda(103, "corbata rayada", "formal", 4000)
+medias = Prenda(104, "medias negras", "formal", 4000)
+
+sucursal_rosario.registrar_producto(camisa)
+sucursal_rosario.registrar_producto(pantalon)
+sucursal_rosario.registrar_producto(saco)
+sucursal_rosario.recargar_stock(100, 50)
+sucursal_rosario.recargar_stock(101, 50)
+sucursal_rosario.recargar_stock(102, 50)
+sucursal_rosario.recargar_stock(103, 50)"""

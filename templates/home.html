@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="shortcut icon" href="/static/img/logo-icon.png">
     <script src="https://kit.fontawesome.com/71ed577500.js" crossorigin="anonymous"></script>
-    <title>Tp5 prueba Macowins</title>
+    <title>Home</title>
 </head>
 <body>
     <header class="header">
@@ -33,21 +32,12 @@
                         <a href="#inicio">Inicio</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="sobre-nos">Sobre Nosotros</a>
+                        <a href="sobre-nos">Acerca de</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="#contacto">Contacto</a>
+                        <a href="#ayuda">Ayuda</a>
                     </li>
-            <!-- buscador  
             
-                    <nav class="buscar">
-                        <input type="text" placeholder="Buscar" required>
-                        <div class="btn">
-                            <i class="fa fa-search icono"></i>
-                    
-                        </div>
-                    
-                    </nav>-->
                 </ul>
             </nav>
     
@@ -60,67 +50,94 @@
         
         <main>
             
-            <!--
-                <nav>
+           <section>
+                <h1>Home</h1>
+           </section>
+
+           <section id="inicio">
+
+                <section class="varios_buscadores">
+                    <form class="buscador_esp">
+                        <input type="text" placeholder="Busca por producto" required>
+                        <a href="#" class="boton-lupa">
+                        <i class="fa fa-search icono"></i></a>
+
+                    </form>
+
+                    <form class="buscador_esp">
+                        <input type="text" placeholder="Buscar por precio" required>
+                        <a href="#" class="boton-lupa">
+                        <i class="fa fa-search icono"></i></a>
+
+                    </form>
+
                     
-                </nav> -->
-    
-                <nav class="lista-productos">
-                    <ul>
-                        <li>
-                            <a class="ver-prod" href="#ver-lista-productos">Ver todos los productos</a>
-                        </li>
-                    </ul>
-                </nav>
+
+
+                </section>
+            
+                <section class="container"> <!--catalogo-->
+                        <p class="title"> Resultados de búsqueda</p>
+                        <div class="products-container">
+                            <div class="product">
+                                <div class="card">
+                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                                    <h3>Camisa Oxford</h3>
+                                    <p>$4999,99</p>
+                                </div>
+                                    
+                            </div>
+
+                            <div class="product">
+                                <div class="card">
+                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                                    <h3>Camisa de Cambray </h3>
+                                    <p>$4999,99</p>
+                                </div>
+                                    
+                            </div>
+
+                            <div class="product">
+                                <div class="card">
+                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
+                                    <h3>Camisa de Mao</h3>
+                                    <p>$4999,99</p>
+                                </div>
+                            </div>
+                        </div> 
+                </section>
+                   
+            </section>
+
+            <section class="productos-enlace-interno">
                 
-                 
-                <article>
-                    <h1>Resultados de la busqueda</h1>
-                    <p> Home: Aquí veras todos los productos que encajen con tu busqueda</p>
-    
-    
-                    
-                </article>
+                <a class="esto" href="{{ url_for('lista_de_productos')}}" >Catálogo completo de productos</a>
+
+            </section>
+            
+                
             
         </main>
         
         
         <footer>
-            <section class="juntos">
-                <!---<article>
-                    <p>Sobre Nosotros</p>
-                    <p>Contactenos</p>
-                    <p>Ayuda</p>
-                </article> --->
-                    <ul class="redes-contacto">
-                        <li>
-                            <a href="mailto:macowins.com" target="_blank" aria-label="enviame un mail">
-                                <img src="../static/img/web-icono.png" alt="web" class="icono-contacto">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank" aria-label="ir a instagram">
-                                <img src="../static/img/ig-icono.png" class="icono-contacto">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://es-la.facebook.com/" target="_blank" aria-label="ir a facebook">
-                                <img src="../static/img/facebook-icono.png" alt="fb" class="icono-contacto">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://ar.linkedin.com/" target="_blank" aria-label="ir a linkedin"> 
-                                <img src="/static/img/linkedin-icono.png" alt="linkedin" class="icono-contacto">
-                            </a>
-                        </li>
             
-                    </ul>
-                </section>
-                <article class="pie-pagina">
-                    <p> <small> Copyright todos los derechos reservados</small></p>
-    
-                    <p> <small> Página creada por 2 Diseños Software </small></p>
-                </article>
+            <div class="footer-content">
+            
+
+                <ul class="social">
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i> </a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+                </ul>
+            
+            <div class="footer-bottom">
+                <p>Copyright &copy;2022 Macowins designed by <span> 2diseños</span></p>
+            </div>
+
+                
+            </div>
     
         
             

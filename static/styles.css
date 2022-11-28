@@ -13,16 +13,87 @@ body{
     line-height: 1.2;
     background-color: #fff;
     color: #0f0f0f;
+
     /*position: relative;
     padding-bottom: 3em;
-    min-height: 100vh;*/
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh;*/
 }
 
- /*logo macowins*/
+footer{
+    background-color: #442f76;
+    padding: 1em 0;
+    text-align: center;
+    /*position: absolute;
+    bottom: 0;
+    width: 100%;
+    */
+    margin-top: auto
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 0rem 0;
+}
+
+.social li{
+    margin: 0 10px;
+}
+
+.social a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.social a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+}
+.social a:hover i{
+    color: darkblue;
+}
+
+.footer-bottom{
+    width: 100vh;
+    padding: 0px 0;
+    text-align: center;
+}
+
+
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.footer-bottom span{
+    text-transform: uppercase;
+    color: #bcb6d0;
+    opacity: .4;
+    font-weight: 200;
+}
+
+
 .logo-cabecera img{
+    margin: 0 100px;
     height: 80px;
     width: 90px;
     /*hover logo*/
@@ -45,7 +116,11 @@ header .logo-cabecera img:hover{
     justify-content: space-between;
     align-items: center;
     height: 90px;
-    padding: 5px 10%;
+    padding: 16px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     box-shadow: 0 3px 10px -5px #4d25ac;
 }
 
@@ -62,12 +137,23 @@ header .logo-cabecera img:hover{
 
 
 main{
-    margin: 20px 10px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 h1{
-    margin: 30px 15px;
+    font-size: 36px;
+    text-align: center;
 }
+
+h2{
+    font-size: 28px;
+}
+h3{
+    text-align: center;
+    margin-top: -10px;
+}
+
 
 /*saca los puntos de la lista del menu y otras*/
 ul{
@@ -103,18 +189,7 @@ li.menu-inicio:hover{
 
 /*estilos del footer*/
 
-footer{
-    background-color: #442f76;
-    padding: 1em 0;
-    text-align: center;
-    /*position: absolute;
-    bottom: 0;
-    width: 100%;
-    */
-    margin-top: auto
 
-
-}
 
 .icono-contacto{
     width: 30px;
@@ -122,8 +197,7 @@ footer{
 }
 
 p{
-    margin: 50px 10px 16px;
-    text-align: center;
+    margin: 16px;
 }
 
 /*estilos del footer: iconos ig fb linkedin*/
@@ -213,12 +287,121 @@ input{
 
 }
 
+/*lista-catalogo de productos*/
+
+.product img{
+    width: 250px;
+    margin: 50px;
+    margin-bottom: 1px;
+    margin-top: 20px;
+}
+
+
+.card{
+    
+    margin-left: 100px;
+    width: 350px;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 0px 3px 1px rgb(12 149 187 / 12%), 0px 2px 2px rgb(61 25 222 / 24%);
+}
+
+.productos{
+    display: flex;
+
+    margin: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    padding-top: 60px;
+}
+
+.container .title{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: auto;
+    color: #2a2a34;
+}
+
+.container .products-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.card .pestaña_detalle{
+    text-align: center;
+}
+
+.precio{
+    margin: 0px;
+    margin-bottom: 6px;
+}
+
+.varios_buscadores{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 115px;
+    margin: -11px;
+    margin-left: 6px;
+    margin-bottom: -150px;
+}
+
+section#inicio {
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.buscador_esp{
+    color: #000;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    transition: all 0.6s ease;
+
+}
+
+i .fa fa-search icono{
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    top: 0;
+    right: 0;
+    line-height: 55px;
+    text-align: center;
+    background: #3539ad;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.productos_enlace_interno{
+    text-align: end;
+    font-family: auto;
+    font-size: 110px;
+}
+
+.esto{
+    text-align: end;
+    font-family: auto;
+    font-size: 24px;
+}
+
 /*.container{
     width: 85%;
     max-width: 850px;
     margin: 20px;
 }
-*/
+
 .pie-pagina{
     font-style: italic;
     color: #fff;
@@ -234,6 +417,149 @@ input{
     justify-content: end;
 }
 
-/*section.juntos{
+section.juntos{
     flex-direction: row;
 }*/
+
+/* borde de la tabla*/
+.contenido {
+   
+    border: solid 1px rgba(148, 48, 219, 0.3)
+}
+
+table  {
+   color: #0f0f0f; 
+   font-size: 14px;
+   table-layout: fixed;
+   border-collapse: collapse;
+   
+}
+thead{
+    background-color: #bcb6d0;
+}
+
+th{
+    padding: 20px 15px ;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+td {
+    padding: 15px;
+    border-bottom: solid 1 px rgba(148, 48, 219, 0.3);
+}
+tbody tr {
+    cursor: pointer ;
+}
+tbody tr:hover {
+    background: rgba(148, 48, 219, 0.3); 
+     
+}
+
+/* detalles de la carta*/
+
+.carta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 380px; 
+    background-color: #b4accc;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25); 
+    overflow: hidden;
+}
+.carta.ingBox {
+    position: relative; 
+    min-width: 300px;
+    width: 300px; 
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    } 
+     
+.carta:hover .imgBox{
+    transform: rotate(-35deg);
+    }
+
+.carta .imgBox img{
+     width: 85%;
+    }
+
+.carta .detalle{
+    position: relative; 
+    min-width: 300px; 
+    background:  rgba(148, 48, 219, 0.3); 
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between; 
+    width: 100%; 
+    height: 100%; 
+    padding: 20px;
+    color: #fff;
+    }
+    .carta .detalle::before { 
+        content:"";
+        position: absolute;
+        left:0;
+        width: 0; height: 0;
+        border-bottom: 10px solid transparent; 
+        border-top: 10px solid transparent; 
+        border-left: 10px solid #efff;
+    }
+
+.carta .detalle .title small {
+        font-weight: 200;
+        font-size: 0.8em;
+    }
+
+.carta .detalle h4{
+        font-size: 0.9em;
+    }
+
+.carta .detalle .description p { 
+        font-size: 0.8em; font-weight: 200;
+    }
+
+ .carta .detalle .talle ul {
+    display: flex; 
+    width: 100%;
+    justify-content: space-between;
+    }
+.carta .detalle .talle ul li {
+
+    list-style: none; 
+    display: flex; 
+    Justify-content: center; 
+    align-items: center; 
+    font-size: 0.8em; 
+    border: solid 1px #efff; 
+    padding: 0.6em;
+    }
+        
+.carta .detalle .talle ul li:hover{
+    background-color: #fff;
+    color: #b44be9;
+    }
+
+.carta .detalle .comprar {
+    display: flex; 
+    Justify-content: space-between; 
+    align-items: center;
+
+    }
+
+.carta .detalle .comprar.precio { 
+    font-size: 1.6em;
+
+}
+
+.carta .detalle .comprar .boton {
+    background: offf; 
+    padding: 0.5em 0.8em; 
+    text-transform: uppercase;
+}
+.carta .detalle .comprar .boton a {
+    text-decoration: none;
+    color: #b44be9;
+}
