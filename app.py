@@ -11,9 +11,9 @@ def raiz():
 
 @app.get("/lista_productos")
 def lista_de_productos():
-    #lista = sucursal.ver_productos()
+    lista = cargar_todos()
     #aqui tiene que estar el metodo q trae la lista
-    lista = request.args.get("lista")
+    # lista = request.args.get("lista")
     return render_template("lista_productos.html", lista = lista)
 
 
@@ -26,7 +26,7 @@ def ventas():
     return render_template("lista_ventas.html")
 
 
-@app.route("/busqueda", methods=['GET','POST','DELETE'])
+@app.route("/busqueda", methods=['GET'])
 def busqueda():
-    busqueda = request.form.get('busqueda')
+    busqueda = request.args.get('busqueda')
     return render_template("resultado.html")
