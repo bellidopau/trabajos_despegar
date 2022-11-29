@@ -117,11 +117,11 @@
                 </div>
 
             </section>
-        --> <p> hola</p>
-        {% for producto in productos_all %}
+        --> <p> probando</p>
+        {% for producto in lista %}
         <div>
             <li>
-                <a href="{{ url_for('products') }}"> {{ producto.nombre }}</a>
+                <a href="{{ url_for('lista_de_productos') }}"> {{ producto.nombre }}</a>
             </li>
         </div>
     {%endfor%} 
