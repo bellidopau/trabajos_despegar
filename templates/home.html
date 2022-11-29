@@ -114,6 +114,18 @@
                 <a class="esto" href="{{ url_for('lista_de_productos')}}" >Catálogo completo de productos</a>
 
             </section>
+
+            <section>
+                <p> hola </p>
+                
+                {% for producto in productos_all %}
+                    <div>
+                        <li>
+                            <a href="{{ url_for('products') }}"> {{ producto.nombre }}</a>
+                        </li>
+                    </div>
+                {%endfor%} 
+            </section>
             
                 
             

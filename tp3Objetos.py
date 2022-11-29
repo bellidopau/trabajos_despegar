@@ -22,7 +22,7 @@ class Sucursal:
 
     def ver_productos(self):
         for producto in self.productos:
-            print (str(producto.codigo) + " "+ producto.nombre)
+            print (str(producto.codigo) + " "+ producto.nombre + " " + str(producto.categoria[0]) + " " + str(producto.precio))
 
     def cantidad_productos(self):
         return len(self.productos)  

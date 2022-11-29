@@ -11,10 +11,27 @@ def raiz():
 
 @app.get("/lista_productos")
 def lista_de_productos():
-    lista = cargar_todos()
-    #aqui tiene que estar el metodo q trae la lista
-    # lista = request.args.get("lista")
-    return render_template("lista_productos.html", lista = lista)
+    rosario = cargar("rosario")
+    x = cargar_todos(modulo='tp3Objetos')
+
+    return render_template({{url_for('lista_productos')}}, x = x)
+
+
+def todos_los_productos():
+    productos = []
+    for sucursal in cargar_todos().values():
+        productos += sucursal.productos
+    return productos
+
+def products():
+    productos = todos_los_productos()
+    print(productos)
+    return render_template("home.html", productos_all=productos)
+
+"""@app.get("/productos/")
+def get_all_productos():
+    productos = cargar_todos()
+    return render_template("home.html", productos_all= productos)"""
 
 
 @app.get("/detalles")
@@ -30,3 +47,11 @@ def ventas():
 def busqueda():
     busqueda = request.args.get('busqueda')
     return render_template("resultado.html")
+
+
+def todos_los_productos():
+    productos = []
+    for sucursal in cargar_todos().values():
+        productos += sucursal.productos
+    return productos
+
