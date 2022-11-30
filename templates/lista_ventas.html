@@ -7,15 +7,14 @@
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="shortcut icon" href="/static/img/logo-icon.png">
     <script src="https://kit.fontawesome.com/71ed577500.js" crossorigin="anonymous"></script>
-    <title>Home</title>
+    <title>Ventas</title>
 </head>
 <body>
     <header class="header">
         <!--logo macowins-->
-            <a href="#inicio" aria-label="Ir a inicio" class="logo-cabecera">
+            <a href="{{ url_for('raiz') }}" aria-label="Ir a inicio" class="logo-cabecera">
                 <img src="../static/img/logo-header.png" alt="logo de macowins">
             </a>
-    
     
     
             <form class="buscador">
@@ -29,14 +28,12 @@
             <nav>
                 <ul id="menu-principal">
                     <li class="menu-inicio">
-                        <a href="#inicio">Inicio</a>
+                        <a href="{{ url_for('raiz') }}">Inicio</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="sobre-nos">Acerca de</a>
+                        <a href="sobre-nos">Ayuda</a>
                     </li>
-                    <li class="menu-inicio">
-                        <a href="#ayuda">Ayuda</a>
-                    </li>
+                    
             
                 </ul>
             </nav>

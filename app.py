@@ -11,16 +11,13 @@ def raiz():
 
 @app.get("/lista_productos")
 def lista_de_productos():
-    lista = cargar_todos(modulo='tp3Objetos')
-
+    lista = []
+    lis = cargar_todos(modulo='tp3Objetos').values()
+    for suc in lis:
+        for producto in suc.productos:
+            lista.append(producto)        
     return render_template("lista_productos.html", lista = lista)
 
-
-def todos_los_productos():
-    productos = []
-    for sucursal in cargar_todos(modulo='tp3Objetos').values():
-        productos += sucursal.productos
-    return productos
 
 
 @app.get("/detalles")

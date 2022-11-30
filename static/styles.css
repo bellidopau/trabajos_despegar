@@ -564,3 +564,30 @@ tbody tr:hover {
     text-decoration: none;
     color: #b44be9;
 }
+
+.detalle {
+    width: 250px;
+    margin: 50px;
+
+    display: flex;
+    height: 500px;
+    text-align: center;
+
+}
+   
+.temas { 
+    display: flex; 
+    margin: 60px;
+    
+} 
+
+.articulos { 
+    width: 80%; 
+    border-right: 3px solid black;
+}
+    
+.secciones { 
+    display: flex; 
+    align-items: center; 
+    padding: 40px;
+}

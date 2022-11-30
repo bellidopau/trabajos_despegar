@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <!--logo macowins-->
-            <a href="#inicio" aria-label="Ir a inicio" class="logo-cabecera">
+            <a href="{{ url_for('raiz') }}" aria-label="Ir a inicio" class="logo-cabecera">
                 <img src="../static/img/logo-header.png" alt="logo de macowins">
             </a>
     
@@ -51,80 +51,37 @@
             <section>
                 <h1>Bienvenido a Macowins</h1>
             </section>
-
+            
             <section class="container"> <!--catalogo-->
                 <p class="title"> Catálogo de productos</p>
                 <div class="products-container">
-                    <!---
+                    {% for producto in lista %}
                     <div class="product">
+                        
+
                         <div class="card">
                             <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            <span>Nombre: </span>lista {{ lista }}!
                             <section class="pestaña_detalle">
-                                <h3>Camisa Oxford</h3>
-                                <p class="precio">$4999,99</p>
+                                
+                                    <p>nombre: {{producto.nombre}}</p>
+                                    <p>categoria: {{producto.categoria[0]}}</p>
+                                    <p>precio: ${{producto.precio}}</p>
+                                
+
                             
                             <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
                           </section>
-                         </div>   
+                         </div>
+                         
                     </div>
 
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            
 
-                            <section class="pestaña_detalle">
-                                <h3>Camisa de Cambray </h3>
-                                <p class="precio">precio : {{precio}}</p>
-                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
-                            </section>
-                        </div>
-                            
-                    </div>
-
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            
-                            <section class="pestaña_detalle">
-                                <h3>Camisa de Mao</h3>
-                                <p class="precio"> {{precio}}</p>
-                                
-                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
-                              </section>
-                        </div>
-                            
-                    </div>
-
-                    <div class="product">
-                        <div class="card">
-                            <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                            
-                            <section class="pestaña_detalle">
-                                <h3>Camisa cuello inglés</h3>
-                                <p class="precio">$4999,99</p>
-                                <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
-                              </section>
-                            
-                            <span>Categoria: </span> 
-                            
-                        </div>
-                            
-                    </div>
 
                     
+                    {%endfor%}   
                 </div>
 
             </section>
-        --> <p> probando</p>
-        {% for producto in lista %}
-        <div>
-            <li>
-                <a href="{{ url_for('lista_de_productos') }}"> {{ producto.nombre }}</a>
-            </li>
-        </div>
-    {%endfor%} 
             
         </main>
         
