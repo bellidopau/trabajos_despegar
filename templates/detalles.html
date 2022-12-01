@@ -52,16 +52,28 @@
              <div class="temas">
                 <div class="=articulos">
                     <div class="secciones">
+                        {% for producto in productos %}
+                        {% if producto.stock > 0 %}
                         <div class="cajita_detalle">
                             <div class="detalle"><img src="../static/img/producto-catalogo.jpg " alt="Imagen de camisa"></div>
 
-                            {% for producto in productos %}
+                            
                             <div class="detalle_producto">
-                                <p>{{producto.nombre}}</p>
-                                <p>{{producto.categoria[0]}}</p>
-                                <p>{{producto.precio}}</p>
+                                <p>Nombre: {{producto.nombre}}</p>
+                                <p>Codigo: {{producto.codigo}}</p>
+                                <p>Categoria: {{producto.categoria[0]}}</p>
+                                <p>Precio: ${{producto.precio}}</p>
                             </div>
                         </div>
+                        {% else %}
+                       
+                            <img class="detalle2" src="/static/img/producto-catalogo.jpg" alt="Img camisa">
+                        <div class="sinstock">    
+                            <p>nombre: {{producto.nombre}}</p>
+                            <p>categoria: {{producto.categoria[0]}}</p>
+                            <p>precio: ${{producto.precio}}</p>
+                        </div>
+                        {% endif %}
                             {% endfor %}
                             
                         </div>

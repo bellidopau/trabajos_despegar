@@ -556,7 +556,7 @@ tbody tr:hover {
 .secciones { 
     display: flex; 
     align-items: center;
-    padding: 0px;
+    padding: 85px;
     text-align: center;
 }
 
@@ -573,16 +573,29 @@ tbody tr:hover {
 
 .ads{
     width: 1200px;
-    margin: 28px;
+    margin: 1px;
     margin-bottom: 50px;
     margin-top: 30px;
 }
 
 .detalle_producto{
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .cajita_detalle{
     margin: 2px;
     margin-top: 34px;
+}
+
+
+
+.detalle2 {
+
+    width: 226px;
+    margin: 50px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+
 }
