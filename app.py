@@ -21,10 +21,17 @@ def raiz():
 def lista_de_productos():     
     return render_template("lista_productos.html", lista = cargar_sucursales())
 
+def cargar_ventas():
+    vent = []
+    sale = cargar_todos(modulo='tp3Objetos').values()
+    for suc in sale:
+        for producto in suc.ventas:
+            vent.append(producto)
+    return vent
 
 @app.get("/lista_ventas")
 def ventas():
-    return render_template("lista_ventas.html")
+    return render_template("lista_ventas.html", ventas = cargar_ventas())
 
 
 
