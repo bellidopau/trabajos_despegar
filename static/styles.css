@@ -95,13 +95,9 @@ footer{
     margin: 0 100px;
     height: 80px;
     width: 90px;
-    /*hover logo*/
     transition: all 0.3s;
-    
-    /*max-width: 136px;
-    padding: 21px;
-    align-items: center;*/
 }
+
 
 /* detalles: se agranda al apoyar sobre logo*/
 
@@ -122,16 +118,6 @@ header .logo-cabecera img:hover{
     left: 0;
     box-shadow: 0 3px 10px -5px #4d25ac;
 }
-
-    
-    
-    /*
-    width: 100%;
-    position: inherit;
-    top: 0;
-    left: 0;
-    box-shadow: 0 3px 10px -5px #5f5f5f*/
-
 
 
 
@@ -227,12 +213,6 @@ ul.redes-contacto li a:hover{
     filter: none;
 }
 
-/* estilos buscador
-.buscador{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}*/
 
 input{
     width: 300px;
@@ -336,6 +316,7 @@ input{
 
 .card .pestaña_detalle{
     text-align: center;
+    line-height: 4px;
 }
 
 .precio{
@@ -395,27 +376,6 @@ i .fa fa-search icono{
     font-size: 24px;
 }
 
-/*.container{
-    width: 85%;
-    max-width: 850px;
-    margin: 20px;
-}
-
-.pie-pagina{
-    font-style: italic;
-    color: #fff;
-    line-height: 0px;
-
-}
-
-.ver-prod{
-    text-align: right;
-    margin: 20px 30px;
-    font-style: normal;
-    display: flex;
-    justify-content: end;
-}
-
 section.juntos{
     flex-direction: row;
 }*/
@@ -434,6 +394,10 @@ table  {
    border-collapse: collapse;
    width: 100%;
    text-align: center;
+   margin: 100px;
+   margin-top: 10px;
+   margin-bottom: 132px;
+   margin-left: 0px;
 }
 thead{
     background-color: #bcb6d0;
@@ -590,4 +554,15 @@ tbody tr:hover {
     display: flex; 
     align-items: center; 
     padding: 40px;
+}
+
+.arriba{
+    font-size: 45px;
+    height: 135px;
+}
+
+.fecha_filtro{
+    margin: 10px;
+    margin-bottom: 90px;
+    margin-left: 3px;
 }

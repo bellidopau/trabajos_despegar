@@ -127,8 +127,6 @@ class Sucursal:
         return [producto for producto in self.productos if criterio.corresponde_al_producto(producto)]
 
 
-    def lista_segun_criterio(self, criterio):
-          return [producto for producto in self.productos if criterio.corresponde_al_producto(producto) ]
 
     def guardar_en_db(self, nombre_archivo, elemento):
         guardar(nombre_archivo, elemento)

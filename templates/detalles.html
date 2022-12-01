@@ -48,15 +48,21 @@
         
         
         <main>
-            
+            <p>{{productos}}</p>
+            <p>{{busqueda}}</p>
+            <p>{{nombre}}</p>
              <div class="temas">
                 <div class="=articulos">
                     <div class="secciones">
                         <div>
-                            <h2>Camisa de Mao</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, 
-                                ad cupiditate soluta non maiores omnis. Ratione ipsum accusantium repellat,
-                                 dolore in nam inventore odio doloribus rem, corporis deserunt hic voluptates.</p>
+                            {% for producto in lista %}
+                            <div>
+                                <p>hola {{producto.nombre}}</p>
+                                <p>hola que onda</p>
+                            </div>
+                        </div>
+                            {% endfor %}
+                            
                         </div>
                         <div class="detalle"><img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa"></div>
 

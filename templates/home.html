@@ -18,8 +18,9 @@
     
     
     
-            <form class="buscador">
-                        <input type="text" placeholder="Buscar" required>
+            <form class="buscador" action="/detalles" method="get">
+                        <input type="text" name="por_nombre" placeholder="Buscar por nombre">
+                        <label for="por_nombre"></label>
                         <a href="#" class="boton-lupa">
                          <i class="fa fa-search icono"></i></a>
     
@@ -32,8 +33,10 @@
                         <a href="#inicio">Inicio</a>
                     </li>
                     <li class="menu-inicio">
-                        <a href="sobre-nos">Acerca de</a>
+                        <a href="{{ url_for('lista_de_productos')}}" >Catálogo de productos</a>
+
                     </li>
+                    
                     <li class="menu-inicio">
                         <a href="#ayuda">Faqs</a>
                     </li>
@@ -57,14 +60,14 @@
            <section id="inicio">
 
                 <section class="varios_buscadores">
-                    <form class="buscador_esp">
-                        <input type="text" placeholder="Busca por producto" required>
+                    <form class="buscador_esp" action="/detalles" method="get">
+                        <input type="text" placeholder="Busca por categoria" required>
                         <a href="#" class="boton-lupa">
                         <i class="fa fa-search icono"></i></a>
 
                     </form>
 
-                    <form class="buscador_esp">
+                    <form class="buscador_esp" action="/detalles" method="get">
                         <input type="text" placeholder="Buscar por precio" required>
                         <a href="#" class="boton-lupa">
                         <i class="fa fa-search icono"></i></a>
@@ -82,8 +85,7 @@
                             <div class="product">
                                 <div class="card">
                                     <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                                    <h3>Camisa Oxford</h3>
-                                    <p>$4999,99</p>
+                                    
                                 </div>
                                     
                             </div>
@@ -91,8 +93,7 @@
                             <div class="product">
                                 <div class="card">
                                     <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                                    <h3>Camisa de Cambray </h3>
-                                    <p>$4999,99</p>
+                                    
                                 </div>
                                     
                             </div>
@@ -100,19 +101,12 @@
                             <div class="product">
                                 <div class="card">
                                     <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                                    <h3>Camisa de Mao</h3>
-                                    <p>$4999,99</p>
+                                    
                                 </div>
                             </div>
                         </div> 
                 </section>
                    
-            </section>
-
-            <section class="productos-enlace-interno">
-                
-                <a class="esto" href="{{ url_for('lista_de_productos')}}" >Catálogo completo de productos</a>
-
             </section>
 
             <!--desde aqui navego a la otra pagina /Productos/ pero no aparecen los productos en sucursal-->
