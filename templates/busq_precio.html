@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="shortcut icon" href="/static/img/logo-icon.png">
+    <script src="https://kit.fontawesome.com/71ed577500.js" crossorigin="anonymous"></script>
+    <title>Detalle producto</title>
+</head>
+<body>
+    <header class="header">
+        <!--logo macowins-->
+            <a href="{{ url_for('raiz') }}" aria-label="Ir a inicio" class="logo-cabecera">
+                <img src="../static/img/logo-header.png" alt="logo de macowins">
+            </a>
+    
+    
+    
+            <form class="buscador">
+                        <input type="text" placeholder="Buscar" required>
+                        <a href="#" class="boton-lupa">
+                         <i class="fa fa-search icono"></i></a>
+    
+            </form>
+        
+            <!--menu-de-navegacion-->
+            <nav>
+                <ul id="menu-principal">
+                    <li class="menu-inicio">
+                        <a href="{{ url_for('raiz') }}">Inicio</a>
+                    </li>
+                    <li class="menu-inicio">
+                        <a href="sobre-nos">Acerca de</a>
+                    </li>
+                    <li class="menu-inicio">
+                        <a href="#ayuda">Faqs</a>
+                    </li>
+
+                </ul>
+            </nav>
+    
+    
+    
+        </header>            
+        
+        
+        
+        <main>
+            
+             <div class="temas">
+                <div class="=articulos">
+                    <div class="secciones">
+                        {% for producto in productos %}
+                        <div class="cajita_detalle">
+                            <div class="detalle"><img src="../static/img/producto-catalogo.jpg " alt="Imagen de camisa"></div>
+
+                            
+                            <div class="detalle_producto">
+                                
+                                <p>Precio: {{producto.precio}}</p>
+                                <p>Nombre: {{producto.nombre}}</p>
+                                <p>Codigo: {{producto.codigo}}</p>
+                                <p>Categoria: {{producto.categoria[0]}}</p>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                            
+                        </div>
+                        
+                    </div>
+                    
+
+             
+                </div>
+             </div>
+    
+             
+            
+        </main>
+        
+        
+        <footer>
+            
+            <div class="footer-content">
+            
+
+                <ul class="social">
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i> </a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+                </ul>
+            
+            <div class="footer-bottom">
+                <p>Copyright &copy;2022 Macowins designed by <span> 2diseños</span></p>
+            </div>
+    
+    
+                
+                
+                
+                
+            </div>
+
+
+        </footer>
+</body>
+</html>

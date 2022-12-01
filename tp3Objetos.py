@@ -132,6 +132,11 @@ class Sucursal:
         guardar(nombre_archivo, elemento)
 
 
+    def convierte(self):
+        for producto in self.producto:
+            if producto.precio <0:
+                print ("algo")
+
 class SucursalFisica(Sucursal):
     def __init__(self, gasto):
         super().__init__()

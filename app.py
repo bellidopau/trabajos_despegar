@@ -45,8 +45,10 @@ def busqueda_por_categoria(input):
 
 @app.get("/precio")
 def precio():
-    return render_template("busq_precio.html", productos = busqueda_por_precio(request.args.get("por_precio")), busqueda = request.args.get("por_precio"))
+    if request.args.get("por_precio").isnumeric():
+        return render_template("busq_precio.html", productos = busqueda_por_precio(int(request.args.get("por_precio"))), busqueda = request.args.get("por_precio"))
+    else:
+        return render_template("home.html")
 
 def busqueda_por_precio(input):
     return [producto for producto in cargar_sucursales() if PorPrecio(input).corresponde_al_producto(producto)]
-
