@@ -61,14 +61,16 @@
 
                 <section class="varios_buscadores">
                     <form class="buscador_esp" action="/detalles" method="get">
-                        <input type="text" placeholder="Busca por categoria" required>
+                        <input type="text" name="por_categoria" placeholder="Busca por categoria" required>
+                        <label for="por_categoria"></label>
                         <a href="#" class="boton-lupa">
                         <i class="fa fa-search icono"></i></a>
 
                     </form>
 
                     <form class="buscador_esp" action="/detalles" method="get">
-                        <input type="text" placeholder="Buscar por precio" required>
+                        <input type="text" name="por_precio" placeholder="Buscar por precio" required>
+                        <label for="por_precio"></label>
                         <a href="#" class="boton-lupa">
                         <i class="fa fa-search icono"></i></a>
 
@@ -80,33 +82,13 @@
                 </section>
             
                 <section class="container"> <!--catalogo-->
-                        <p class="title"> Resultados de búsqueda</p>
-                        <div class="products-container">
-                            <div class="product">
-                                <div class="card">
-                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                                    
-                                </div>
-                                    
-                            </div>
-
-                            <div class="product">
-                                <div class="card">
-                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                                    
-                                </div>
-                                    
-                            </div>
-
-                            <div class="product">
-                                <div class="card">
-                                    <img src="../static/img/producto-catalogo.jpg" alt="Imagen de camisa">
-                                    
-                                </div>
-                            </div>
-                        </div> 
+                        <p class="title"> Bienvenido a Macowins </p>
+                        
                 </section>
-                   
+                <hr>
+                <figure >
+                    <img class="ads" src="/static/img/aside.png" alt="publicidad">
+                </figure>   
             </section>
 
             <!--desde aqui navego a la otra pagina /Productos/ pero no aparecen los productos en sucursal-->

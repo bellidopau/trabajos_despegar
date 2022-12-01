@@ -23,9 +23,7 @@ def lista_de_productos():
 
 
 
-@app.get("/detalles")
-def detalles():
-    return render_template("detalles.html")
+
 
 @app.get("/lista_ventas")
 def ventas():
@@ -33,13 +31,12 @@ def ventas():
 
 
 @app.get("/detalles")
-def busqueda():
+def detalles():
     return render_template("detalles.html", productos = busqueda_por_nombre(request.args.get("por_nombre", "remera blanca")), busqueda = request.args.get("por_nombre"))
 
 def busqueda_por_nombre(input):
     return [producto for producto in cargar_sucursales() if PorNombre(input).corresponde_al_producto(producto)]
 
-def saludo():
-    return render_template("detalles.html", nombre = busqueda_por_nombre())
+
 
 

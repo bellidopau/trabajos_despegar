@@ -66,10 +66,10 @@
                                     <p>nombre: {{producto.nombre}}</p>
                                     <p>categoria: {{producto.categoria[0]}}</p>
                                     <p>precio: ${{producto.precio}}</p>
-                                
+                                    <a class="detalle-enlace-interno" href="{{ url_for('detalles')}}" ><u>Detalle del producto</u></a>
 
                             
-                            <a href="{{ url_for('detalles')}}" class="detalle-enlace-interno">Detalle de este producto</a>
+                            
                           </section>
                          </div>
                          
